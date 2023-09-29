@@ -15,4 +15,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "activity-and-charity"
 include(":app")
- 
+include(":data")
+include(":domain")
