@@ -7,7 +7,7 @@ plugins {
 
 android {
     namespace = "ru.sogya.projects.activity_and_charity"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "ru.sogya.projects.activity_and_charity"
