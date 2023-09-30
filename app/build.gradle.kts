@@ -52,6 +52,10 @@ android {
 }
 
 dependencies {
+
+//    implementation("io.coil-kt:coil-compose:2.2.2")
+//    implementation("io.coil-kt:coil-svg:2.2.2")
+
     implementation(project(mapOf("path" to ":data")))
     implementation(project(mapOf("path" to ":domain")))
     implementation("androidx.core:core-ktx:1.12.0")
