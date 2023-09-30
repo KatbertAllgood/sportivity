@@ -61,6 +61,15 @@ internal fun ActivityAndCharityTheme(
             },
             fontWeight = FontWeight.Bold,
             fontFamily = FontFamily(Font(R.font.roboto_bold))
+        ),
+        regularMedium = TextStyle(
+            fontSize = when (textSize) {
+                ActivityAndCharitySize.Small -> 12.sp
+                ActivityAndCharitySize.Medium -> 14.sp
+                ActivityAndCharitySize.Big -> 16.sp
+            },
+            fontWeight = FontWeight.Medium,
+            fontFamily = FontFamily(Font(R.font.roboto_medium))
         )
     )
 

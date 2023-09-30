@@ -13,4 +13,11 @@
     <string name="run_activity">Бег</string>
     <string name="bike_activity">Велотренировка</string>
 
+    <string name="leader_board">Таблица лидеров</string>
+    <string name="rub_symbol">₽</string>
+
+    <string name="km">км</string>
+    <string name="minutes">мин</string>
+
+
 </resources>
