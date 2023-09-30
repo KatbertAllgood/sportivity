@@ -10,7 +10,7 @@ interface DatabaseRepository {
 
     fun getAllActivities(): Flow<List<ActivityDomain>>
 
-    fun insertActivities(activities: List<ActivityDomain>): Long
+    fun insertActivities(activities: List<ActivityDomain>)
 
     fun updateActivities(activities: List<ActivityDomain>): Int
 

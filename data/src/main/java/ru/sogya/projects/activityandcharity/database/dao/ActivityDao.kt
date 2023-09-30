@@ -15,7 +15,7 @@ interface ActivityDao {
     fun getAllActivities(): Flow<List<ActivityData>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertActivities(activities: List<ActivityData>): Long
+    fun insertActivities(activities: List<ActivityData>)
 
     @Update
     fun updateActivities(activities: List<ActivityData>): Int

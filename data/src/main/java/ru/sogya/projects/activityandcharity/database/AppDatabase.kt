@@ -6,10 +6,21 @@ import ru.sogya.projects.activityandcharity.database.dao.ActivityDao
 import ru.sogya.projects.activityandcharity.database.dao.ActivityStatisticDao
 import ru.sogya.projects.activityandcharity.database.dao.UserDao
 import ru.sogya.projects.activityandcharity.database.dao.UserStatisticDao
+import ru.sogya.projects.activityandcharity.model.ActivityData
+import ru.sogya.projects.activityandcharity.model.ActivityStatisticData
+import ru.sogya.projects.activityandcharity.model.DepartamentData
+import ru.sogya.projects.activityandcharity.model.FundData
 import ru.sogya.projects.activityandcharity.model.UserData
+import ru.sogya.projects.activityandcharity.model.UserStatisticData
 
 @Database(
-    entities = [UserData::class], version = 1
+    entities = [
+        UserData::class,
+        ActivityData::class,
+        ActivityStatisticData::class,
+        DepartamentData::class,
+        FundData::class,
+        UserStatisticData::class ], version = 1
 )
 abstract class LocalDataBase : RoomDatabase() {
     abstract fun userDao(): UserDao

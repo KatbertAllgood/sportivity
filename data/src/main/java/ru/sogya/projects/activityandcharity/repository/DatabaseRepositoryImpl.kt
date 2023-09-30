@@ -13,7 +13,7 @@ class DatabaseRepositoryImpl(context: Context) : DatabaseRepository {
         TODO("Not yet implemented")
     }
 
-    override fun insertActivities(activities: List<ActivityDomain>): Long {
+    override fun insertActivities(activities: List<ActivityDomain>) {
         TODO("Not yet implemented")
     }
 
