@@ -1,0 +1,7 @@
+package ru.sogya.projects.activityandcharity.domain.usecase.database.activity_stat
+
+import ru.sogya.projects.activityandcharity.domain.repository.DatabaseRepository
+
+class GetActivityStatisticUseCase(private val databaseRepository: DatabaseRepository) {
+    operator fun invoke() = databaseRepository.getActivityStatisticDomain()
+}
