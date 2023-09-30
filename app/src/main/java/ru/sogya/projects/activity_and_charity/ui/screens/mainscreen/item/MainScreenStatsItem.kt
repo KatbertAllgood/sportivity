@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -72,7 +73,15 @@ fun StatItemComposable(
         textSize = ActivityAndCharitySize.Small
     ) {
         Card(
-            shape = ActivityAndCharityTheme.shape.cornersStyle
+            shape = ActivityAndCharityTheme.shape.cornersStyle,
+            elevation = CardDefaults.cardElevation(0.dp),
+            colors = CardDefaults.cardColors(
+                containerColor = ActivityAndCharityTheme.colors.primary
+            )
+//            modifier = Modifier
+//                .padding(
+//                    horizontal = 16.dp
+//                )
         ){
             Box(
                 modifier = Modifier

@@ -5,4 +5,12 @@
     <string name="donated">Пожертвовано</string>
     <string name="progress_of_achievement">Прогресс достижений</string>
 
+    <string name="greeting_day">Добрый день, %s!</string>
+
+    <string name="activities">Активности</string>
+    <string name="force_activity">Силовая тренировка</string>
+    <string name="water_activity">Плаванье</string>
+    <string name="run_activity">Бег</string>
+    <string name="bike_activity">Велотренировка</string>
+
 </resources>
