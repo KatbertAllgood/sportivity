@@ -17,9 +17,9 @@ interface NetworkRepository {
 
     fun getUserRating(): Flow<List<UserStatisticDomain>>
 
-    fun createUser(login: String, password: String)
+    fun createUser(email: String, name: String, type: Int, password: String): Flow<UserDomain>
 
-    fun login(login: String, password: String)
+    fun loginUser(email: String, password: String): Flow<UserDomain>
 
     fun getAllActivities(): Flow<List<ActivityDomain>>
 
@@ -27,5 +27,5 @@ interface NetworkRepository {
 
     fun getAllDepartments(): Flow<List<DepartmentDomain>>
 
-    fun getAchievmentById(achievementsId:Int): Flow<AchievementsDomain>
+    fun getAchievementById(achievementsId: Int): Flow<AchievementsDomain>
 }

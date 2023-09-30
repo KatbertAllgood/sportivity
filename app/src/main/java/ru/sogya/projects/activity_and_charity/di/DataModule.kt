@@ -7,8 +7,10 @@ import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import ru.sogya.projects.activityandcharity.domain.repository.DatabaseRepository
+import ru.sogya.projects.activityandcharity.domain.repository.NetworkRepository
 import ru.sogya.projects.activityandcharity.domain.repository.SharedPreferencesRepository
 import ru.sogya.projects.activityandcharity.repository.DatabaseRepositoryImpl
+import ru.sogya.projects.activityandcharity.repository.NetworkRepositoryImpl
 import ru.sogya.projects.activityandcharity.repository.SharedPreferencesRepositoryImpl
 import javax.inject.Singleton
 
@@ -24,4 +26,8 @@ class DataModule {
     @Singleton
     fun providesDatabaseRepository(@ApplicationContext context: Context): DatabaseRepository =
         DatabaseRepositoryImpl(context)
+
+    @Provides
+    @Singleton
+    fun provideNetworkRepository(): NetworkRepository = NetworkRepositoryImpl()
 }
