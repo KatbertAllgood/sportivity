@@ -7,5 +7,6 @@ import ru.sogya.projects.activityandcharity.domain.model.ActivityDomain
 @Entity(tableName = "activities")
 data class ActivityData(
     override val title: String,
-    @PrimaryKey override val id: Int
+    @PrimaryKey override val id: Int,
+    override val valueType: Int
 ) : ActivityDomain
