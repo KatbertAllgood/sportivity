@@ -2,6 +2,7 @@ package ru.sogya.projects.activityandcharity.database
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
+import ru.sogya.projects.activityandcharity.database.dao.AchievementsDao
 import ru.sogya.projects.activityandcharity.database.dao.ActivityDao
 import ru.sogya.projects.activityandcharity.database.dao.ActivityStatisticDao
 import ru.sogya.projects.activityandcharity.database.dao.DepartmentDao
@@ -31,4 +32,5 @@ abstract class LocalDataBase : RoomDatabase() {
     abstract fun activityStatisticDao(): ActivityStatisticDao
     abstract fun departmentDao(): DepartmentDao
     abstract fun fundDao(): FundDao
+    abstract fun achievementsDao():AchievementsDao
 }

@@ -8,6 +8,7 @@ class UserDomainMapper(private val userDomain: UserDomain) {
         userDomain.id,
         userDomain.name,
         userDomain.email,
+        userDomain.achievementsId,
         userDomain.departmentId,
         userDomain.type,
         userDomain.photoUrl,

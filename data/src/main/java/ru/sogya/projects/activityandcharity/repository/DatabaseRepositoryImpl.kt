@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.room.Room
 import kotlinx.coroutines.flow.Flow
 import ru.sogya.projects.activityandcharity.database.LocalDataBase
+import ru.sogya.projects.activityandcharity.domain.model.AchievementsDomain
 import ru.sogya.projects.activityandcharity.domain.model.ActivityDomain
 import ru.sogya.projects.activityandcharity.domain.model.ActivityStatisticDomain
 import ru.sogya.projects.activityandcharity.domain.model.DepartmentDomain
@@ -11,6 +12,7 @@ import ru.sogya.projects.activityandcharity.domain.model.FundDomain
 import ru.sogya.projects.activityandcharity.domain.model.UserDomain
 import ru.sogya.projects.activityandcharity.domain.model.UserStatisticDomain
 import ru.sogya.projects.activityandcharity.domain.repository.DatabaseRepository
+import ru.sogya.projects.activityandcharity.mapper.AchievementsDomainMapper
 import ru.sogya.projects.activityandcharity.mapper.ActivityDomainMapper
 import ru.sogya.projects.activityandcharity.mapper.ActivityStatisticDomainMapper
 import ru.sogya.projects.activityandcharity.mapper.DepartmentsDomainMapper
@@ -123,5 +125,19 @@ class DatabaseRepositoryImpl(context: Context) : DatabaseRepository {
     override fun deleteUserStatistic(userStatisticData: UserStatisticDomain): Int {
         return db.userStatisticDao()
             .deleteUserStatistic(UserStatisticDomainMapper(userStatisticData).toData())
+    }
+
+    override fun getAchievements(): Flow<AchievementsDomain> {
+        return db.achievementsDao().getAchievments()
+    }
+
+    override fun insertAchievements(achievementsDomain: AchievementsDomain): Long {
+        return db.achievementsDao()
+            .insertActhievements(AchievementsDomainMapper(achievementsDomain).toData())
+    }
+
+    override fun updateAchievements(achievementsDomain: AchievementsDomain): Int {
+        return db.achievementsDao()
+            .updateAchievements(AchievementsDomainMapper(achievementsDomain).toData())
     }
 }

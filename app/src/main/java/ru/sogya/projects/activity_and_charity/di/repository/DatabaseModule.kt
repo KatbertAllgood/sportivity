@@ -5,6 +5,9 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ViewModelComponent
 import ru.sogya.projects.activityandcharity.domain.repository.DatabaseRepository
+import ru.sogya.projects.activityandcharity.domain.usecase.database.achievements.GetAchievementsUseCase
+import ru.sogya.projects.activityandcharity.domain.usecase.database.achievements.InsertAchievementsUseCase
+import ru.sogya.projects.activityandcharity.domain.usecase.database.achievements.UpdateAchievementsUseCase
 import ru.sogya.projects.activityandcharity.domain.usecase.database.activity.GetAllActivitiesUseCase
 import ru.sogya.projects.activityandcharity.domain.usecase.database.activity.InsertActivitiesUseCase
 import ru.sogya.projects.activityandcharity.domain.usecase.database.activity.UpdateActivitiesUseCase
@@ -99,4 +102,16 @@ class DatabaseModule {
     @Provides
     fun provideDeleteUserUseCase(databaseRepository: DatabaseRepository) =
         DeleteUserUseCase(databaseRepository)
+
+    @Provides
+    fun provideGetAchievementsUseCase(databaseRepository: DatabaseRepository) =
+        GetAchievementsUseCase(databaseRepository)
+
+    @Provides
+    fun provideInsertAchievemntsUseCase(databaseRepository: DatabaseRepository) =
+        InsertAchievementsUseCase(databaseRepository)
+
+    @Provides
+    fun provideUpdateAchievementsUseCase(databaseRepository: DatabaseRepository) =
+        UpdateAchievementsUseCase(databaseRepository)
 }

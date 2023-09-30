@@ -1,6 +1,7 @@
 package ru.sogya.projects.activityandcharity.domain.repository
 
 import kotlinx.coroutines.flow.Flow
+import ru.sogya.projects.activityandcharity.domain.model.AchievementsDomain
 import ru.sogya.projects.activityandcharity.domain.model.ActivityDomain
 import ru.sogya.projects.activityandcharity.domain.model.ActivityStatisticDomain
 import ru.sogya.projects.activityandcharity.domain.model.DepartmentDomain
@@ -53,4 +54,10 @@ interface DatabaseRepository {
     fun updateUserStatistic(userStatisticData: UserStatisticDomain): Int
 
     fun deleteUserStatistic(userStatisticData: UserStatisticDomain): Int
+
+    fun getAchievements():Flow<AchievementsDomain>
+
+    fun insertAchievements(achievementsDomain: AchievementsDomain):Long
+
+    fun updateAchievements(achievementsDomain: AchievementsDomain): Int
 }
