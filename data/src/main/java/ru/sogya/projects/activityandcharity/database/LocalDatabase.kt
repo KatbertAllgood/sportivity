@@ -9,6 +9,7 @@ import ru.sogya.projects.activityandcharity.database.dao.DepartmentDao
 import ru.sogya.projects.activityandcharity.database.dao.FundDao
 import ru.sogya.projects.activityandcharity.database.dao.UserDao
 import ru.sogya.projects.activityandcharity.database.dao.UserStatisticDao
+import ru.sogya.projects.activityandcharity.model.AchievementsData
 import ru.sogya.projects.activityandcharity.model.ActivityData
 import ru.sogya.projects.activityandcharity.model.ActivityStatisticData
 import ru.sogya.projects.activityandcharity.model.DepartmentData
@@ -23,7 +24,8 @@ import ru.sogya.projects.activityandcharity.model.UserStatisticData
         ActivityStatisticData::class,
         DepartmentData::class,
         FundData::class,
-        UserStatisticData::class], version = 1
+        UserStatisticData::class,
+        AchievementsData::class], version = 1
 )
 abstract class LocalDataBase : RoomDatabase() {
     abstract fun userDao(): UserDao
@@ -32,5 +34,5 @@ abstract class LocalDataBase : RoomDatabase() {
     abstract fun activityStatisticDao(): ActivityStatisticDao
     abstract fun departmentDao(): DepartmentDao
     abstract fun fundDao(): FundDao
-    abstract fun achievementsDao():AchievementsDao
+    abstract fun achievementsDao(): AchievementsDao
 }
