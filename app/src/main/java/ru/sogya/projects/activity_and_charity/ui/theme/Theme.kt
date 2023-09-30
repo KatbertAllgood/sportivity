@@ -3,68 +3,75 @@ package ru.sogya.projects.activity_and_charity.ui.theme
 import android.app.Activity
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.dynamicDarkColorScheme
 import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.SideEffect
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.core.view.WindowCompat
-
-private val DarkColorScheme = darkColorScheme(
-    primary = Purple80,
-    secondary = PurpleGrey80,
-    tertiary = Pink80
-)
-
-private val LightColorScheme = lightColorScheme(
-    primary = Purple40,
-    secondary = PurpleGrey40,
-    tertiary = Pink40
-
-    /* Other default colors to override
-    background = Color(0xFFFFFBFE),
-    surface = Color(0xFFFFFBFE),
-    onPrimary = Color.White,
-    onSecondary = Color.White,
-    onTertiary = Color.White,
-    onBackground = Color(0xFF1C1B1F),
-    onSurface = Color(0xFF1C1B1F),
-    */
-)
+import ru.sogya.projects.activity_and_charity.R
 
 @Composable
-fun ActivityandcharityTheme(
-    darkTheme: Boolean = isSystemInDarkTheme(),
-    // Dynamic color is available on Android 12+
-    dynamicColor: Boolean = true,
+internal fun ActivityAndCharityTheme(
+    textSize: ActivityAndCharitySize = ActivityAndCharitySize.Medium,
+    paddingSize: ActivityAndCharitySize = ActivityAndCharitySize.Medium,
+    corners: ActivityAndCharityCorners = ActivityAndCharityCorners.Rounded,
     content: @Composable () -> Unit
 ) {
-    val colorScheme = when {
-        dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
-            val context = LocalContext.current
-            if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
-        }
 
-        darkTheme -> DarkColorScheme
-        else -> LightColorScheme
-    }
-    val view = LocalView.current
-    if (!view.isInEditMode) {
-        SideEffect {
-            val window = (view.context as Activity).window
-            window.statusBarColor = colorScheme.primary.toArgb()
-            WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = darkTheme
-        }
-    }
+    val colors = basePalette
 
-    MaterialTheme(
-        colorScheme = colorScheme,
-        typography = Typography,
+    val typography = ActivityAndCharityTypography(
+        heading = TextStyle(
+            fontSize = when (textSize) {
+                ActivityAndCharitySize.Small -> 18.sp
+                ActivityAndCharitySize.Medium -> 20.sp
+                ActivityAndCharitySize.Big -> 22.sp
+            },
+            fontWeight = FontWeight.Normal,
+            fontFamily = FontFamily(Font(R.font.roboto_regular))
+        ),
+        regular = TextStyle(
+            fontSize = when (textSize) {
+                ActivityAndCharitySize.Small -> 14.sp
+                ActivityAndCharitySize.Medium -> 16.sp
+                ActivityAndCharitySize.Big -> 18.sp
+            },
+            fontWeight = FontWeight.Normal,
+            fontFamily = FontFamily(Font(R.font.roboto_regular))
+        )
+    )
+
+    val shapes = ActivityAndCharityShape(
+        padding = when (paddingSize) {
+            ActivityAndCharitySize.Small -> 12.dp
+            ActivityAndCharitySize.Medium -> 16.dp
+            ActivityAndCharitySize.Big -> 20.dp
+        },
+        cornersStyle = when (corners) {
+            ActivityAndCharityCorners.Flat -> RoundedCornerShape(0.dp)
+            ActivityAndCharityCorners.Rounded -> RoundedCornerShape(8.dp)
+        }
+    )
+
+    CompositionLocalProvider(
+        LocalActivityAndCharityColors provides colors,
+        LocalActivityAndCharityTypography provides typography,
+        LocalActivityAndCharityShape provides shapes,
         content = content
     )
+
 }

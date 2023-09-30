@@ -10,13 +10,13 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import ru.sogya.projects.activity_and_charity.ui.theme.ActivityandcharityTheme
+import ru.sogya.projects.activity_and_charity.ui.theme.ActivityAndCharityTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            ActivityandcharityTheme {
+            ActivityAndCharityTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier.fillMaxSize(),
@@ -40,7 +40,7 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
-    ActivityandcharityTheme {
+    ActivityAndCharityTheme {
         Greeting("Android")
     }
 }
