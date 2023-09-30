@@ -20,7 +20,8 @@ data class ActivityAndCharityColors(
 
 data class ActivityAndCharityTypography(
     val heading: TextStyle,
-    val regular: TextStyle
+    val regular: TextStyle,
+    val regularBold: TextStyle
 )
 
 data class ActivityAndCharityShape(

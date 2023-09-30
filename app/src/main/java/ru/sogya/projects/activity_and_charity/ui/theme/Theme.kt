@@ -46,12 +46,21 @@ internal fun ActivityAndCharityTheme(
         ),
         regular = TextStyle(
             fontSize = when (textSize) {
-                ActivityAndCharitySize.Small -> 14.sp
-                ActivityAndCharitySize.Medium -> 16.sp
-                ActivityAndCharitySize.Big -> 18.sp
+                ActivityAndCharitySize.Small -> 12.sp
+                ActivityAndCharitySize.Medium -> 14.sp
+                ActivityAndCharitySize.Big -> 16.sp
             },
             fontWeight = FontWeight.Normal,
             fontFamily = FontFamily(Font(R.font.roboto_regular))
+        ),
+        regularBold = TextStyle(
+            fontSize = when (textSize) {
+                ActivityAndCharitySize.Small -> 12.sp
+                ActivityAndCharitySize.Medium -> 14.sp
+                ActivityAndCharitySize.Big -> 16.sp
+            },
+            fontWeight = FontWeight.Bold,
+            fontFamily = FontFamily(Font(R.font.roboto_bold))
         )
     )
 
@@ -63,7 +72,7 @@ internal fun ActivityAndCharityTheme(
         },
         cornersStyle = when (corners) {
             ActivityAndCharityCorners.Flat -> RoundedCornerShape(0.dp)
-            ActivityAndCharityCorners.Rounded -> RoundedCornerShape(8.dp)
+            ActivityAndCharityCorners.Rounded -> RoundedCornerShape(16.dp)
         }
     )
 
