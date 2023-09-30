@@ -5,6 +5,7 @@ import kotlinx.coroutines.flow.flow
 import ru.sogya.projects.activityandcharity.api.NetworkService
 import ru.sogya.projects.activityandcharity.domain.model.AchievementsDomain
 import ru.sogya.projects.activityandcharity.domain.model.ActivityDomain
+import ru.sogya.projects.activityandcharity.domain.model.ActivityStatisticDomain
 import ru.sogya.projects.activityandcharity.domain.model.DepartmentDomain
 import ru.sogya.projects.activityandcharity.domain.model.FundDomain
 import ru.sogya.projects.activityandcharity.domain.model.UserDomain
@@ -55,6 +56,22 @@ class NetworkRepositoryImpl : NetworkRepository {
     }
 
     override fun getAllDepartments(): Flow<List<DepartmentDomain>> {
+        TODO("Not yet implemented")
+    }
+
+    override fun getDepartmentById(departmentId: Int): Flow<DepartmentDomain> {
+        TODO("Not yet implemented")
+    }
+
+    override fun getFundById(fundId: Int): Flow<FundDomain> {
+        TODO("Not yet implemented")
+    }
+
+    override fun getUserStatisticById(userId: Int): Flow<UserStatisticDomain> {
+        TODO("Not yet implemented")
+    }
+
+    override fun getActivityStatisticById(userId: Int): Flow<ActivityStatisticDomain> {
         TODO("Not yet implemented")
     }
 

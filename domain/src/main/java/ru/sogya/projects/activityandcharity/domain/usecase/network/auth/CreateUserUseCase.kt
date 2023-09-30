@@ -1,4 +1,4 @@
-package ru.sogya.projects.activityandcharity.domain.usecase
+package ru.sogya.projects.activityandcharity.domain.usecase.network.auth
 
 import ru.sogya.projects.activityandcharity.domain.repository.NetworkRepository
 

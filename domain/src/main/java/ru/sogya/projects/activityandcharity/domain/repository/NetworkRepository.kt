@@ -3,6 +3,7 @@ package ru.sogya.projects.activityandcharity.domain.repository
 import kotlinx.coroutines.flow.Flow
 import ru.sogya.projects.activityandcharity.domain.model.AchievementsDomain
 import ru.sogya.projects.activityandcharity.domain.model.ActivityDomain
+import ru.sogya.projects.activityandcharity.domain.model.ActivityStatisticDomain
 import ru.sogya.projects.activityandcharity.domain.model.DepartmentDomain
 import ru.sogya.projects.activityandcharity.domain.model.FundDomain
 import ru.sogya.projects.activityandcharity.domain.model.UserDomain
@@ -26,6 +27,14 @@ interface NetworkRepository {
     fun getAllFunds(): Flow<List<FundDomain>>
 
     fun getAllDepartments(): Flow<List<DepartmentDomain>>
+
+    fun getDepartmentById(departmentId: Int): Flow<DepartmentDomain>
+
+    fun getFundById(fundId: Int): Flow<FundDomain>
+
+    fun getUserStatisticById(userId: Int): Flow<UserStatisticDomain>
+
+    fun getActivityStatisticById(userId: Int): Flow<ActivityStatisticDomain>
 
     fun getAchievementById(achievementsId: Int): Flow<AchievementsDomain>
 }
