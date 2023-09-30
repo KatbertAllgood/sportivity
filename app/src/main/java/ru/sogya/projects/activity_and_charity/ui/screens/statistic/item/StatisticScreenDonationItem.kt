@@ -81,7 +81,7 @@ fun DonationItem(
                             fontSize = 36.sp,
                             fontFamily = ActivityAndCharityTheme.typography.regularBold.fontFamily,
                             modifier = Modifier
-                                .height(38.dp)
+                                .height(42.dp)
                         )
                         Spacer(
                             modifier = Modifier
