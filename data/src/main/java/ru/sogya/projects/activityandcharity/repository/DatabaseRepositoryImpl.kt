@@ -5,6 +5,7 @@ import kotlinx.coroutines.flow.Flow
 import ru.sogya.projects.activityandcharity.domain.model.ActivityDomain
 import ru.sogya.projects.activityandcharity.domain.model.ActivityStatisticDomain
 import ru.sogya.projects.activityandcharity.domain.model.DepartmentDomain
+import ru.sogya.projects.activityandcharity.domain.model.FundDomain
 import ru.sogya.projects.activityandcharity.domain.model.UserDomain
 import ru.sogya.projects.activityandcharity.domain.model.UserStatisticDomain
 import ru.sogya.projects.activityandcharity.domain.repository.DatabaseRepository
@@ -23,6 +24,22 @@ class DatabaseRepositoryImpl(context: Context) : DatabaseRepository {
     }
 
     override fun getAllDepartments(): Flow<List<DepartmentDomain>> {
+        TODO("Not yet implemented")
+    }
+
+    override fun getFund(): Flow<FundDomain> {
+        TODO("Not yet implemented")
+    }
+
+    override fun insertFund(fundData: FundDomain): Long {
+        TODO("Not yet implemented")
+    }
+
+    override fun updateFund(fundData: FundDomain): Int {
+        TODO("Not yet implemented")
+    }
+
+    override fun deleteFund(fundData: FundDomain): Int {
         TODO("Not yet implemented")
     }
 

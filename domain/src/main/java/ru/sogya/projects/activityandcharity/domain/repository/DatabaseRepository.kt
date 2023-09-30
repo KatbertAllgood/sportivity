@@ -4,6 +4,7 @@ import kotlinx.coroutines.flow.Flow
 import ru.sogya.projects.activityandcharity.domain.model.ActivityDomain
 import ru.sogya.projects.activityandcharity.domain.model.ActivityStatisticDomain
 import ru.sogya.projects.activityandcharity.domain.model.DepartmentDomain
+import ru.sogya.projects.activityandcharity.domain.model.FundDomain
 import ru.sogya.projects.activityandcharity.domain.model.UserDomain
 import ru.sogya.projects.activityandcharity.domain.model.UserStatisticDomain
 
@@ -16,6 +17,14 @@ interface DatabaseRepository {
     fun updateActivities(activities: List<ActivityDomain>): Int
 
     fun getAllDepartments(): Flow<List<DepartmentDomain>>
+
+    fun getFund(): Flow<FundDomain>
+
+    fun insertFund(fundData: FundDomain): Long
+
+    fun updateFund(fundData: FundDomain): Int
+
+    fun deleteFund(fundData: FundDomain): Int
 
     fun insertDepartments(departments: List<DepartmentDomain>)
 
