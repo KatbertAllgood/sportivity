@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">activity-and-charity</string>
+
+    <string name="your_rating">Ваш рейтинг</string>
+    <string name="donated">Пожертвовано</string>
+    <string name="progress_of_achievement">Прогресс достижений</string>
+
 </resources>
