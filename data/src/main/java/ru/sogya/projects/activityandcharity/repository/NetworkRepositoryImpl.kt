@@ -14,8 +14,10 @@ import ru.sogya.projects.activityandcharity.domain.repository.NetworkRepository
 import ru.sogya.projects.activityandcharity.model.request.CreateUserRequest
 
 class NetworkRepositoryImpl : NetworkRepository {
-    override fun getUserById(): Flow<UserDomain> {
-        TODO("Not yet implemented")
+    override fun getUserById(userId: Int): Flow<UserDomain> = flow {
+        emit(
+            NetworkService.getRetrofitService().getUserById(userId)
+        )
     }
 
     override fun getAllUsers(): Flow<List<UserDomain>> = flow {
@@ -24,8 +26,10 @@ class NetworkRepositoryImpl : NetworkRepository {
         )
     }
 
-    override fun getUserRating(): Flow<List<UserStatisticDomain>> {
-        TODO("Not yet implemented")
+    override fun getUserRating(): Flow<List<UserStatisticDomain>> = flow {
+        emit(
+            NetworkService.getRetrofitService().getUserRating()
+        )
     }
 
     override fun createUser(
@@ -47,35 +51,51 @@ class NetworkRepositoryImpl : NetworkRepository {
         )
     }
 
-    override fun getAllActivities(): Flow<List<ActivityDomain>> {
-        TODO("Not yet implemented")
+    override fun getAllActivities(): Flow<List<ActivityDomain>> = flow {
+        emit(
+            NetworkService.getRetrofitService().getAllActivities()
+        )
     }
 
-    override fun getAllFunds(): Flow<List<FundDomain>> {
-        TODO("Not yet implemented")
+    override fun getAllFunds(): Flow<List<FundDomain>> = flow {
+        emit(
+            NetworkService.getRetrofitService().getAllFund()
+        )
     }
 
-    override fun getAllDepartments(): Flow<List<DepartmentDomain>> {
-        TODO("Not yet implemented")
+    override fun getAllDepartments(): Flow<List<DepartmentDomain>> = flow {
+        emit(
+            NetworkService.getRetrofitService().getAllDepartment()
+        )
     }
 
-    override fun getDepartmentById(departmentId: Int): Flow<DepartmentDomain> {
-        TODO("Not yet implemented")
+    override fun getDepartmentById(departmentId: Int): Flow<DepartmentDomain> = flow {
+        emit(
+            NetworkService.getRetrofitService().getDepartmentById(departmentId)
+        )
     }
 
-    override fun getFundById(fundId: Int): Flow<FundDomain> {
-        TODO("Not yet implemented")
+    override fun getFundById(fundId: Int): Flow<FundDomain> = flow {
+        emit(
+            NetworkService.getRetrofitService().getFundById(fundId)
+        )
     }
 
-    override fun getUserStatisticById(userId: Int): Flow<UserStatisticDomain> {
-        TODO("Not yet implemented")
+    override fun getUserStatisticById(userId: Int): Flow<UserStatisticDomain> = flow {
+        emit(
+            NetworkService.getRetrofitService().getUserStat(userId)
+        )
     }
 
-    override fun getActivityStatisticById(userId: Int): Flow<ActivityStatisticDomain> {
-        TODO("Not yet implemented")
+    override fun getActivityStatisticById(userId: Int): Flow<List<ActivityStatisticDomain>> = flow {
+        emit(
+            NetworkService.getRetrofitService().getActivityStatisticByIdUseCase(userId)
+        )
     }
 
-    override fun getAchievementById(achievementsId: Int): Flow<AchievementsDomain> {
-        TODO("Not yet implemented")
+    override fun getAchievementById(achievementsId: Int): Flow<AchievementsDomain> = flow {
+        emit(
+            NetworkService.getRetrofitService().getAchievmentById(achievementsId)
+        )
     }
 }

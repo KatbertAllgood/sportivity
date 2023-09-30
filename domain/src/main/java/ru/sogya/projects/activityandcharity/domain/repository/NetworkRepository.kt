@@ -12,7 +12,7 @@ import ru.sogya.projects.activityandcharity.domain.model.UserStatisticDomain
 
 interface NetworkRepository {
 
-    fun getUserById(): Flow<UserDomain>
+    fun getUserById(userId:Int): Flow<UserDomain>
 
     fun getAllUsers(): Flow<List<UserDomain>>
 
@@ -34,7 +34,7 @@ interface NetworkRepository {
 
     fun getUserStatisticById(userId: Int): Flow<UserStatisticDomain>
 
-    fun getActivityStatisticById(userId: Int): Flow<ActivityStatisticDomain>
+    fun getActivityStatisticById(userId: Int): Flow<List<ActivityStatisticDomain>>
 
     fun getAchievementById(achievementsId: Int): Flow<AchievementsDomain>
 }
