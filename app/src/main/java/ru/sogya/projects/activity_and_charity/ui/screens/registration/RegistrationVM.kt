@@ -11,12 +11,15 @@ import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.launch
 import ru.sogya.projects.activityandcharity.domain.usecase.database.user.InsertUserUseCase
 import ru.sogya.projects.activityandcharity.domain.usecase.network.auth.CreateUserUseCase
+import ru.sogya.projects.activityandcharity.domain.usecase.sharedpreferences.UpdatePrefsUseCase
+import ru.sogya.projects.activityandcharity.util.Constants
 import javax.inject.Inject
 
 @HiltViewModel
 class RegistrationVM @Inject constructor(
     private val createUserUseCase: CreateUserUseCase,
-    private val insertUserUseCase: InsertUserUseCase
+    private val insertUserUseCase: InsertUserUseCase,
+    private val updatePrefsUseCase: UpdatePrefsUseCase
 ) : ViewModel() {
     private val resultLiveData = MutableLiveData<Long>()
     fun createUser(name: String, email: String, department: Int, type: Int, password: String) {
@@ -27,6 +30,7 @@ class RegistrationVM @Inject constructor(
                 }.collect {
                     val result = insertUserUseCase(it)
                     resultLiveData.postValue(result)
+                    updatePrefsUseCase(Constants.IS_AUTH, true)
                 }
         }
     }

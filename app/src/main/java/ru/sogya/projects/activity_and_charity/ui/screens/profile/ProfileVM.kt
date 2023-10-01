@@ -28,6 +28,8 @@ import ru.sogya.projects.activityandcharity.domain.usecase.database.user_stat.De
 import ru.sogya.projects.activityandcharity.domain.usecase.database.user_stat.GetUserStatisticUseCase
 import ru.sogya.projects.activityandcharity.domain.usecase.network.departments.GetAllDepartmentsUseCase
 import ru.sogya.projects.activityandcharity.domain.usecase.network.fund.GetAllFundUseCase
+import ru.sogya.projects.activityandcharity.domain.usecase.sharedpreferences.UpdatePrefsUseCase
+import ru.sogya.projects.activityandcharity.util.Constants
 import javax.inject.Inject
 
 @HiltViewModel
@@ -41,8 +43,8 @@ class ProfileVM @Inject constructor(
     private val deleteUserStatisticUseCase: DeleteUserStatisticUseCase,
     private val deleteAchievementsUseCase: GetAchievementsUseCase,
     private val getAllDepartmentsUseCase: GetAllDepartmentsUseCase,
-    private val getAllFundUseCase: GetAllFundUseCase
-
+    private val getAllFundUseCase: GetAllFundUseCase,
+    private val updatePrefsUseCase: UpdatePrefsUseCase
 ) : ViewModel() {
     private val userLiveData = MutableLiveData<UserPresentation>()
     private val achivLiveData = MutableLiveData<AchievementsPresentation>()
@@ -116,6 +118,7 @@ class ProfileVM @Inject constructor(
             deleteFundUseCase(fund!!)
             deleteUserUseCase(user!!)
             deleteUserStatisticUseCase(stat!!)
+            updatePrefsUseCase(Constants.IS_AUTH, false)
         }
     }
 }
