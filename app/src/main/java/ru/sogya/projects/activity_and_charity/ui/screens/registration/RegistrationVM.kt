@@ -34,4 +34,8 @@ class RegistrationVM @Inject constructor(
                 }
         }
     }
+
+    fun updateUserId(id: Long) {
+        updatePrefsUseCase(Constants.USER_ID, id)
+    }
 }

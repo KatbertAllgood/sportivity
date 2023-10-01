@@ -60,6 +60,7 @@ fun RegistrationScreenComposable(
     val resultLiveData: State<Long?> = viewModel.resultLiveData.observeAsState(0)
 
     if((resultLiveData.value?.toInt() ?: -1) >= 1) {
+        viewModel.updateUserId(resultLiveData.value!!)
         navigateToMainScreen()
     } else {
         Log.d("REGISTRATION_SCREEN", "ERROR : resultLiveData - ${resultLiveData.value}")
