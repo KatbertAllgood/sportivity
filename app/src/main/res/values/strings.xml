@@ -50,4 +50,8 @@
 
     <string name="not_selected">Не выбрано</string>
 
+    <string name="name">Имя</string>
+    <string name="last_name">Фамилия</string>
+    <string name="fio">Введите ФИО</string>
+
 </resources>

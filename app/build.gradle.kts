@@ -53,6 +53,10 @@ android {
 
 dependencies {
 
+    implementation("androidx.compose.runtime:runtime-livedata:1.6.0-alpha06")
+
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.2")
+
     implementation("androidx.navigation:navigation-compose:2.7.3")
 
     implementation("androidx.compose.material3:material3:1.2.0-alpha08")
@@ -78,4 +82,5 @@ dependencies {
     //Hilt
     implementation("com.google.dagger:hilt-android:2.46.1")
     kapt("com.google.dagger:hilt-compiler:2.46.1")
+    implementation("androidx.hilt:hilt-navigation-compose:1.0.0")
 }

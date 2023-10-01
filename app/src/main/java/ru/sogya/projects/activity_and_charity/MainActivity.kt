@@ -14,7 +14,6 @@ class MainActivity : ComponentActivity() {
     private val vm: MainVM by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        vm.test()
         setContent {
             ActivityAndCharityTheme {
                 BottomNav()

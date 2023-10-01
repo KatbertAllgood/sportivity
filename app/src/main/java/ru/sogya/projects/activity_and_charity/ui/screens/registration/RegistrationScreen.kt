@@ -1,5 +1,6 @@
 package ru.sogya.projects.activity_and_charity.ui.screens.registration
 
+import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -21,13 +22,16 @@ import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ModalBottomSheet
+import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.State
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -41,12 +45,25 @@ import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.ViewModel
 import ru.sogya.projects.activity_and_charity.R
 import ru.sogya.projects.activity_and_charity.ui.theme.ActivityAndCharityTheme
+import androidx.lifecycle.viewmodel.compose.viewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun RegistrationScreenComposable(){
+fun RegistrationScreenComposable(
+    viewModel: RegistrationVM = viewModel(),
+    navigateToMainScreen: () -> Unit
+){
+
+    val resultLiveData: State<Long?> = viewModel.resultLiveData.observeAsState(0)
+
+    if((resultLiveData.value?.toInt() ?: -1) >= 1) {
+        navigateToMainScreen()
+    } else {
+        Log.d("REGISTRATION_SCREEN", "ERROR : resultLiveData - ${resultLiveData.value}")
+    }
 
     ActivityAndCharityTheme {
         Column(
@@ -76,6 +93,62 @@ fun RegistrationScreenComposable(){
                         top = 12.dp
                     )
             )
+
+            var name by remember {
+                mutableStateOf(
+                    TextFieldValue("")
+                )
+            }
+
+            Card(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(
+                        top = 24.dp,
+                        start = 16.dp,
+                        end = 16.dp
+                    ),
+                colors = CardDefaults.cardColors(
+                    containerColor = ActivityAndCharityTheme.colors.secondary
+                ),
+                shape = ActivityAndCharityTheme.shape.cornersStyle,
+                elevation = CardDefaults.cardElevation(
+                    defaultElevation = 0.dp
+                )
+            ) {
+                TextField(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(60.dp),
+                    value = name,
+                    onValueChange = { newText ->
+                        name = newText
+                    },
+                    singleLine = true,
+                    colors = TextFieldDefaults.colors(
+                        focusedTextColor = ActivityAndCharityTheme.colors.white,
+                        unfocusedTextColor = ActivityAndCharityTheme.colors.white,
+                        focusedContainerColor = ActivityAndCharityTheme.colors.secondary,
+                        unfocusedContainerColor = ActivityAndCharityTheme.colors.secondary,
+                        focusedIndicatorColor = Color.Transparent,
+                        unfocusedIndicatorColor = Color.Transparent,
+                        focusedLabelColor = ActivityAndCharityTheme.colors.accent,
+                        unfocusedLabelColor = ActivityAndCharityTheme.colors.accent,
+                        cursorColor = ActivityAndCharityTheme.colors.accent
+                    ),
+                    label = {
+                        Text(
+                            text = stringResource(id = R.string.fio),
+                            fontFamily = ActivityAndCharityTheme.typography.regular.fontFamily,
+                            fontSize = 17.sp
+                        )
+                    },
+                    shape = ActivityAndCharityTheme.shape.cornersStyle,
+                    textStyle = TextStyle(
+                        fontFamily = ActivityAndCharityTheme.typography.regular.fontFamily
+                    )
+                )
+            }
 
             var email by remember {
                 mutableStateOf(
@@ -189,6 +262,14 @@ fun RegistrationScreenComposable(){
                 )
             }
 
+            var showSheet by remember { mutableStateOf(false) }
+
+            if (showSheet) {
+                BottomSheet {
+                    showSheet = false
+                }
+            }
+
             Card(
                 shape = ActivityAndCharityTheme.shape.cornersStyle,
                 elevation = CardDefaults.cardElevation(0.dp),
@@ -201,9 +282,9 @@ fun RegistrationScreenComposable(){
                         start = 16.dp,
                         end = 16.dp,
                         top = 24.dp,
-                        )
+                    )
                     .clickable {
-
+                        showSheet = true
                     }
             ) {
                 Row(
@@ -238,7 +319,13 @@ fun RegistrationScreenComposable(){
 
             Button(
                 onClick = {
-
+                          viewModel.createUser(
+                              name = name.text,
+                              email = email.text,
+                              department = 1,
+                              type = 0,
+                              password = password.text
+                          )
                 },
                 shape = ActivityAndCharityTheme.shape.cornersStyle,
                 colors = ButtonDefaults.buttonColors(
@@ -262,42 +349,8 @@ fun RegistrationScreenComposable(){
                 )
 
             }
-
-            BottomSheetComposable()
         }
     }
-}
-
-@Composable
-private fun BottomSheetComposable() {
-
-    var showSheet by remember { mutableStateOf(false) }
-
-    if (showSheet) {
-        BottomSheet {
-            showSheet = false
-        }
-    }
-
-    ActivityAndCharityTheme {
-        Surface(
-            modifier = Modifier.fillMaxSize(),
-            color = MaterialTheme.colorScheme.background
-        ) {
-            Column(
-                modifier = Modifier.fillMaxSize(),
-                verticalArrangement = Arrangement.Center,
-                horizontalAlignment = Alignment.CenterHorizontally
-            ) {
-                Button(onClick = {
-                    showSheet = true
-                }) {
-                    Text(text = "Show BottomSheet")
-                }
-            }
-        }
-    }
-
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -327,7 +380,8 @@ fun CountryList() {
                     .fillMaxWidth()
                     .padding(vertical = 10.dp, horizontal = 20.dp)
             ) {
-                Text(text = it)
+//                RadioButton(selected = , onClick = { /*TODO*/ })
+//                Text(text = it)
             }
         }
     }
@@ -336,5 +390,7 @@ fun CountryList() {
 @Preview
 @Composable
 private fun RegistrationScreenPreview(){
-    RegistrationScreenComposable()
+    RegistrationScreenComposable(
+        navigateToMainScreen = { }
+    )
 }

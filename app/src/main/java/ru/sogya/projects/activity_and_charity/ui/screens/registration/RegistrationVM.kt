@@ -21,7 +21,7 @@ class RegistrationVM @Inject constructor(
     private val insertUserUseCase: InsertUserUseCase,
     private val updatePrefsUseCase: UpdatePrefsUseCase
 ) : ViewModel() {
-    private val resultLiveData = MutableLiveData<Long>()
+    val resultLiveData = MutableLiveData<Long>()
     fun createUser(name: String, email: String, department: Int, type: Int, password: String) {
         viewModelScope.launch {
             createUserUseCase(email, department, name, type, password).flowOn(Dispatchers.IO)
