@@ -26,6 +26,9 @@ import ru.sogya.projects.activityandcharity.domain.usecase.database.user.DeleteU
 import ru.sogya.projects.activityandcharity.domain.usecase.database.user.GetUserUseCase
 import ru.sogya.projects.activityandcharity.domain.usecase.database.user.InsertUserUseCase
 import ru.sogya.projects.activityandcharity.domain.usecase.database.user.UpdateUserUseCase
+import ru.sogya.projects.activityandcharity.domain.usecase.database.user_stat.DeleteUserStatisticUseCase
+import ru.sogya.projects.activityandcharity.domain.usecase.database.user_stat.GetUserStatisticUseCase
+import ru.sogya.projects.activityandcharity.domain.usecase.database.user_stat.InsertUserStatisticUseCase
 
 @Module
 @InstallIn(ViewModelComponent::class)
@@ -102,6 +105,19 @@ class DatabaseModule {
     @Provides
     fun provideDeleteUserUseCase(databaseRepository: DatabaseRepository) =
         DeleteUserUseCase(databaseRepository)
+
+    @Provides
+    fun provideDeleteUserStatisticUseCase(databaseRepository: DatabaseRepository) =
+        DeleteUserStatisticUseCase(databaseRepository)
+
+    @Provides
+    fun provideGetUserStatisticUseCase(databaseRepository: DatabaseRepository) =
+        GetUserStatisticUseCase(databaseRepository)
+
+    @Provides
+    fun provideInsertUserStatisticUseCase(databaseRepository: DatabaseRepository) =
+        InsertUserStatisticUseCase(databaseRepository)
+
 
     @Provides
     fun provideGetAchievementsUseCase(databaseRepository: DatabaseRepository) =
