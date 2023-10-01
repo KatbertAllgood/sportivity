@@ -102,9 +102,11 @@ fun AuthScreenComposable(
                         email = newText
                     },
                     singleLine = true,
-                    colors = TextFieldDefaults.textFieldColors(
-                        textColor = ActivityAndCharityTheme.colors.white,
-                        containerColor = ActivityAndCharityTheme.colors.secondary,
+                    colors = TextFieldDefaults.colors(
+                        focusedTextColor = ActivityAndCharityTheme.colors.white,
+                        unfocusedTextColor = ActivityAndCharityTheme.colors.white,
+                        focusedContainerColor = ActivityAndCharityTheme.colors.secondary,
+                        unfocusedContainerColor = ActivityAndCharityTheme.colors.secondary,
                         focusedIndicatorColor = Color.Transparent,
                         unfocusedIndicatorColor = Color.Transparent,
                         focusedLabelColor = ActivityAndCharityTheme.colors.accent,
@@ -156,9 +158,11 @@ fun AuthScreenComposable(
                         email = newText
                     },
                     singleLine = true,
-                    colors = TextFieldDefaults.textFieldColors(
-                        textColor = ActivityAndCharityTheme.colors.white,
-                        containerColor = ActivityAndCharityTheme.colors.secondary,
+                    colors = TextFieldDefaults.colors(
+                        focusedTextColor = ActivityAndCharityTheme.colors.white,
+                        unfocusedTextColor = ActivityAndCharityTheme.colors.white,
+                        focusedContainerColor = ActivityAndCharityTheme.colors.secondary,
+                        unfocusedContainerColor = ActivityAndCharityTheme.colors.secondary,
                         focusedIndicatorColor = Color.Transparent,
                         unfocusedIndicatorColor = Color.Transparent,
                         focusedLabelColor = ActivityAndCharityTheme.colors.accent,

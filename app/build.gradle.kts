@@ -55,6 +55,8 @@ dependencies {
 
     implementation("androidx.navigation:navigation-compose:2.7.3")
 
+    implementation("androidx.compose.material3:material3:1.2.0-alpha08")
+
     implementation(project(mapOf("path" to ":data")))
     implementation(project(mapOf("path" to ":domain")))
     implementation("androidx.core:core-ktx:1.12.0")

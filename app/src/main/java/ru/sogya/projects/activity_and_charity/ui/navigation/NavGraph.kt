@@ -16,7 +16,7 @@ fun NavGraph(
 ) {
     NavHost(
         navController = navController,
-        startDestination = BottomBarScreen.Main.route
+        startDestination = "reg"
     ) {
         composable(route = BottomBarScreen.Main.route) {
             MainScreenComposable()
