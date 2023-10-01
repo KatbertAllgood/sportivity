@@ -7,6 +7,7 @@ import androidx.navigation.compose.composable
 import ru.sogya.projects.activity_and_charity.ui.screens.auth.AuthScreenComposable
 import ru.sogya.projects.activity_and_charity.ui.screens.mainscreen.MainScreenComposable
 import ru.sogya.projects.activity_and_charity.ui.screens.profile.ProfileScreenComposable
+import ru.sogya.projects.activity_and_charity.ui.screens.registration.RegistrationScreenComposable
 import ru.sogya.projects.activity_and_charity.ui.screens.statistic.StatisticScreenComposable
 
 @Composable
@@ -15,7 +16,7 @@ fun NavGraph(
 ) {
     NavHost(
         navController = navController,
-        startDestination = "auth"
+        startDestination = BottomBarScreen.Main.route
     ) {
         composable(route = BottomBarScreen.Main.route) {
             MainScreenComposable()
@@ -32,6 +33,9 @@ fun NavGraph(
                     navController.navigate(BottomBarScreen.Main.route)
                 }
             )
+        }
+        composable(route = "reg") {
+            RegistrationScreenComposable()
         }
     }
 }

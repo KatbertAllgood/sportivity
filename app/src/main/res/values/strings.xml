@@ -38,6 +38,16 @@
 
     <string name="sing_up_or_in">Войдите или зарегистрируйтесь</string>
     <string name="type_email">Введите e-mail</string>
+    <string name="type_pass">Введите пароль</string>
     <string name="continue_">Продолжить</string>
+    <string name="sing_in">Войти</string>
+
+    <string name="registration">Регистрация</string>
+    <string name="sing_up">Зарегистрироваться</string>
+
+    <string name="department">Отдел</string>
+    <string name="fund">Фонд</string>
+
+    <string name="not_selected">Не выбрано</string>
 
 </resources>

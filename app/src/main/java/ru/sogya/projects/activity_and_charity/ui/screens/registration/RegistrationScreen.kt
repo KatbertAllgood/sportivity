@@ -1,8 +1,10 @@
-package ru.sogya.projects.activity_and_charity.ui.screens.auth
+package ru.sogya.projects.activity_and_charity.ui.screens.registration
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -31,16 +33,12 @@ import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.navigation.compose.rememberNavController
 import ru.sogya.projects.activity_and_charity.R
-import ru.sogya.projects.activity_and_charity.ui.navigation.BottomBarScreen
 import ru.sogya.projects.activity_and_charity.ui.theme.ActivityAndCharityTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun AuthScreenComposable(
-    onClick: () -> Unit
-) {
+fun RegistrationScreenComposable(){
 
     ActivityAndCharityTheme {
         Column(
@@ -61,7 +59,7 @@ fun AuthScreenComposable(
                     .size(60.dp)
             )
             Text(
-                text = stringResource(id = R.string.sing_up_or_in),
+                text = stringResource(id = R.string.registration),
                 fontFamily = ActivityAndCharityTheme.typography.regularMedium.fontFamily,
                 fontSize = 20.sp,
                 color = ActivityAndCharityTheme.colors.white,
@@ -72,6 +70,12 @@ fun AuthScreenComposable(
             )
 
             var email by remember {
+                mutableStateOf(
+                    TextFieldValue("")
+                )
+            }
+
+            var password by remember {
                 mutableStateOf(
                     TextFieldValue("")
                 )
@@ -125,12 +129,6 @@ fun AuthScreenComposable(
                 )
             }
 
-            var password by remember {
-                mutableStateOf(
-                    TextFieldValue("")
-                )
-            }
-
             Card(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -151,9 +149,9 @@ fun AuthScreenComposable(
                     modifier = Modifier
                         .fillMaxWidth()
                         .height(60.dp),
-                    value = email,
+                    value = password,
                     onValueChange = { newText ->
-                        email = newText
+                        password = newText
                     },
                     singleLine = true,
                     colors = TextFieldDefaults.textFieldColors(
@@ -179,9 +177,54 @@ fun AuthScreenComposable(
                 )
             }
 
+            Card(
+                shape = ActivityAndCharityTheme.shape.cornersStyle,
+                elevation = CardDefaults.cardElevation(0.dp),
+                colors = CardDefaults.cardColors(
+                    containerColor = ActivityAndCharityTheme.colors.secondary
+                ),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(
+                        start = 16.dp,
+                        end = 16.dp,
+                        top = 24.dp,
+
+                        )
+            ) {
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(12.dp),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically
+                ){
+                    Text(
+                        text = stringResource(id = R.string.department),
+                        color = ActivityAndCharityTheme.colors.white,
+                        fontFamily = ActivityAndCharityTheme.typography.regular.fontFamily,
+                        fontSize = 16.sp,
+                    )
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically
+                    ){
+                        Text(
+                            text = stringResource(id = R.string.not_selected),
+                            color = ActivityAndCharityTheme.colors.secondaryText,
+                            fontFamily = ActivityAndCharityTheme.typography.regular.fontFamily,
+                            fontSize = 16.sp,
+                        )
+                        Image(
+                            painter = painterResource(id = R.drawable.ic_arrow_forward),
+                            contentDescription = null
+                        )
+                    }
+                }
+            }
+
             Button(
                 onClick = {
-                          onClick()
+
                 },
                 shape = ActivityAndCharityTheme.shape.cornersStyle,
                 colors = ButtonDefaults.buttonColors(
@@ -198,7 +241,7 @@ fun AuthScreenComposable(
             ) {
 
                 Text(
-                    text = stringResource(id = R.string.sing_in),
+                    text = stringResource(id = R.string.sing_up),
                     color = ActivityAndCharityTheme.colors.primary,
                     fontFamily = ActivityAndCharityTheme.typography.regular.fontFamily,
                     fontSize = 17.sp
@@ -211,8 +254,6 @@ fun AuthScreenComposable(
 
 @Preview
 @Composable
-private fun AuthScreenPreview() {
-    AuthScreenComposable(
-        onClick = { }
-    )
+private fun RegistrationScreenPreview(){
+    RegistrationScreenComposable()
 }
