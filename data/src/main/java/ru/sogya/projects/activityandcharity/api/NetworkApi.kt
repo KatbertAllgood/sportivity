@@ -24,23 +24,33 @@ interface NetworkApi {
     @GET("users/login")
     suspend fun login(@Path("login") login: String, @Path("password") password: String): UserData
 
-    suspend fun getAchievmentById(@Path("userId") userId: Int): AchievementsData
+    @GET("achievement/{userId}")
+    suspend fun getAchievementById(@Path("userId") userId: Int): AchievementsData
 
+    @GET("activities")
     suspend fun getAllActivities(): List<ActivityData>
 
+    @GET("activity-statistic/{userId}")
     suspend fun getActivityStatisticByIdUseCase(@Path("userId") userId: Int): List<ActivityStatisticData>
 
+    @GET("departments")
     suspend fun getAllDepartment(): List<DepartmentData>
 
-    suspend fun getDepartmentById(departmentId: Int): DepartmentData
+    @GET("department/{id}")
+    suspend fun getDepartmentById(@Path("id") departmentId: Int): DepartmentData
 
+    @GET("funds")
     suspend fun getAllFund(): List<FundData>
 
-    suspend fun getFundById(fundId: Int): FundData
+    @GET("fund/{id}")
+    suspend fun getFundById(@Path("id") fundId: Int): FundData
 
+    @GET("user-statistic")
     suspend fun getUserRating(): List<UserStatisticData>
 
-    suspend fun getUserById(userId: Int): UserData
+    @GET("user/{id}")
+    suspend fun getUserById(@Path("id") userId: Int): UserData
 
-    suspend fun getUserStat(userId: Int): UserStatisticData
+    @GET("user/{userId}")
+    suspend fun getUserStat(@Path("userId") userId: Int): UserStatisticData
 }

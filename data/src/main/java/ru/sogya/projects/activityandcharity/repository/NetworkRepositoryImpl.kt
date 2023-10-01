@@ -95,7 +95,7 @@ class NetworkRepositoryImpl : NetworkRepository {
 
     override fun getAchievementById(achievementsId: Int): Flow<AchievementsDomain> = flow {
         emit(
-            NetworkService.getRetrofitService().getAchievmentById(achievementsId)
+            NetworkService.getRetrofitService().getAchievementById(achievementsId)
         )
     }
 }
