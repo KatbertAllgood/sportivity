@@ -93,6 +93,10 @@ fun StatisticScreenComposable() {
                     )
                 }
             }
+            Spacer(
+                modifier = Modifier
+                    .height(98.dp)
+            )
         }
     }
 }

@@ -53,8 +53,7 @@ android {
 
 dependencies {
 
-//    implementation("io.coil-kt:coil-compose:2.2.2")
-//    implementation("io.coil-kt:coil-svg:2.2.2")
+    implementation("androidx.navigation:navigation-compose:2.7.3")
 
     implementation(project(mapOf("path" to ":data")))
     implementation(project(mapOf("path" to ":domain")))

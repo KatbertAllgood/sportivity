@@ -32,5 +32,9 @@
     <string name="change">Изменить</string>
     <string name="personal_info">Личные данные</string>
 
+    <string name="main_screen">Главная</string>
+    <string name="profile_screen">Профиль</string>
+    <string name="stat_screen">Статистика</string>
+
 
 </resources>

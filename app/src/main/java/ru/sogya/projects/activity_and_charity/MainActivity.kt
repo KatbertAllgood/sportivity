@@ -10,6 +10,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import ru.sogya.projects.activity_and_charity.ui.navigation.BottomNav
 import ru.sogya.projects.activity_and_charity.ui.screens.mainscreen.MainScreenComposable
 import ru.sogya.projects.activity_and_charity.ui.screens.profile.ProfileScreenComposable
 import ru.sogya.projects.activity_and_charity.ui.screens.statistic.StatisticScreenComposable
@@ -21,7 +22,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             ActivityAndCharityTheme {
-                ProfileScreenComposable()
+                BottomNav()
             }
         }
     }
