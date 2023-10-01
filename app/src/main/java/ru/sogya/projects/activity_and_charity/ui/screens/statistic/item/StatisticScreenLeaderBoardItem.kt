@@ -137,13 +137,13 @@ private fun PersonItemInLeaderBoard() {
                     )
                     Column {
                         Text(
-                            text = "Артём Гнида",
+                            text = stringResource(id = R.string.name_example),
                             fontSize = 16.sp,
                             color = ActivityAndCharityTheme.colors.white,
                             fontFamily = ActivityAndCharityTheme.typography.regular.fontFamily
                         )
                         Text(
-                            text = "Суетолог",
+                            text = "Служба безопасности",
                             fontSize = 12.sp,
                             color = ActivityAndCharityTheme.colors.secondaryText,
                             fontFamily = ActivityAndCharityTheme.typography.regular.fontFamily

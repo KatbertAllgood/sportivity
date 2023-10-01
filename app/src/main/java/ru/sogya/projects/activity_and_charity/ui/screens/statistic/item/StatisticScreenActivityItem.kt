@@ -47,7 +47,7 @@ fun ActivityItemStatScreenComposable(
         ) {
             Box(
                 modifier = Modifier
-                    .size(172.dp)
+                    .size(150.dp)
             ) {
                 Image(
                     painter = painterResource(id = img),

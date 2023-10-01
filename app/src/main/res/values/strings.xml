@@ -1,6 +1,12 @@
 <resources>
     <string name="app_name">activity-and-charity</string>
 
+
+    <string name="achievement_example">Лучший пловец</string>
+    <string name="name_example">Алексей Харитонов</string>
+    <string name="fund_example">Фонд «Да»</string>
+    <string name="fund_description_example">Вы выбрали фонд «Да». Он дает возможность взрослым людям с ментальными особенностями работать и зарабатывать на жизнь в керамической, швейной, кулинарной, столярной, цветочной, графической мастерских и арт-студии.</string>
+
     <string name="your_rating">Ваш рейтинг</string>
     <string name="donated">Пожертвовано</string>
     <string name="progress_of_achievement">Прогресс достижений</string>
@@ -18,6 +24,13 @@
 
     <string name="km">км</string>
     <string name="minutes">мин</string>
+
+    <string name="lvl">%s уровень</string>
+
+    <string name="achievement_description">Вы заработали эту награду %s за %s</string>
+
+    <string name="change">Изменить</string>
+    <string name="personal_info">Личные данные</string>
 
 
 </resources>
