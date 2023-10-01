@@ -4,17 +4,18 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import ru.sogya.projects.activity_and_charity.ui.screens.auth.AuthScreenComposable
 import ru.sogya.projects.activity_and_charity.ui.screens.mainscreen.MainScreenComposable
 import ru.sogya.projects.activity_and_charity.ui.screens.profile.ProfileScreenComposable
 import ru.sogya.projects.activity_and_charity.ui.screens.statistic.StatisticScreenComposable
 
 @Composable
-fun BottomNavGraph(
+fun NavGraph(
     navController: NavHostController
 ) {
     NavHost(
         navController = navController,
-        startDestination = BottomBarScreen.Main.route
+        startDestination = "auth"
     ) {
         composable(route = BottomBarScreen.Main.route) {
             MainScreenComposable()
@@ -24,6 +25,13 @@ fun BottomNavGraph(
         }
         composable(route = BottomBarScreen.Profile.route) {
             ProfileScreenComposable()
+        }
+        composable(route = "auth") {
+            AuthScreenComposable(
+                onClick = {
+                    navController.navigate(BottomBarScreen.Main.route)
+                }
+            )
         }
     }
 }

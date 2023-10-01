@@ -36,5 +36,8 @@
     <string name="profile_screen">Профиль</string>
     <string name="stat_screen">Статистика</string>
 
+    <string name="sing_up_or_in">Войдите или зарегистрируйтесь</string>
+    <string name="type_email">Введите e-mail</string>
+    <string name="continue_">Продолжить</string>
 
 </resources>
