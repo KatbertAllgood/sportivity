@@ -89,9 +89,10 @@ class ProfileVM @Inject constructor(
             getAllDepartmentsUseCase().flowOn(Dispatchers.IO).catch {
                 Log.e("Error", it.message.toString())
             }.collect { departmentDomains ->
-                departmentDomains.map {
+                val departments = departmentDomains.map {
                     DepartmentsDataMapper(it).toData()
                 }
+                departmentsLiveData.postValue(departments)
             }
         }
     }
@@ -101,9 +102,10 @@ class ProfileVM @Inject constructor(
             getAllFundUseCase().flowOn(Dispatchers.IO).catch {
                 Log.e("Error", it.message.toString())
             }.collect { fundDomains ->
-                fundDomains.map {
+                val funds = fundDomains.map {
                     FundDataMapper(it).toData()
                 }
+                fundsLiveData.postValue(funds)
             }
         }
     }
