@@ -9,6 +9,6 @@ data class UserPresentation(
     override val achievementsId: Int,
     override val departmentId: Int,
     override val type: Int,
-    override val photoUrl: String,
+    override val photoUrl: String?,
     override val fundId: Int
 ) : UserDomain

@@ -21,7 +21,7 @@ data class UserData(
     @SerializedName("type")
     override val type: Int,
     @SerializedName("photoUrl")
-    override val photoUrl: String = "",
+    override val photoUrl: String? = "",
     @SerializedName("fundid")
     override val fundId: Int
 ) : UserDomain
