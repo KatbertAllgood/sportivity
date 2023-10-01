@@ -23,7 +23,7 @@ import ru.sogya.projects.activityandcharity.mapper.UserStatisticDomainMapper
 class DatabaseRepositoryImpl(context: Context) : DatabaseRepository {
     private val db = Room.databaseBuilder(
         context, LocalDataBase::class.java, "local-data-base"
-    ).build()
+    ).allowMainThreadQueries().build()
 
     override fun getAllActivities(): Flow<List<ActivityDomain>> {
         return db.activityDao().getAllActivities()
