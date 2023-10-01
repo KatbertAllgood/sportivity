@@ -6,6 +6,7 @@ object Constants {
     const val USER_LOGIN = ""
     const val USER_ID = "userId"
     const val USER_PASSWORD = ""
+    const val IS_AUTH = "isAuth"
 
 
     //UI
