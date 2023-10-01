@@ -7,6 +7,8 @@ data class CreateUserRequest(
     val name: String,
     @SerializedName("email")
     val email: String,
+    @SerializedName("departament")
+    val department: Int,
     @SerializedName("type")
     val type: Int,
     @SerializedName("password")

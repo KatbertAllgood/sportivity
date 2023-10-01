@@ -34,11 +34,12 @@ class NetworkRepositoryImpl : NetworkRepository {
 
     override fun createUser(
         email: String,
+        department: Int,
         name: String,
         type: Int,
         password: String
     ): Flow<UserDomain> = flow {
-        val createUserRequest = CreateUserRequest(name, email, type, password)
+        val createUserRequest = CreateUserRequest(name, email, department, type, password)
         emit(
             NetworkService.getRetrofitService()
                 .createUser(createUserRequest = createUserRequest)

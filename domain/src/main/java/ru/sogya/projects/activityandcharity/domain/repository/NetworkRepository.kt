@@ -18,7 +18,7 @@ interface NetworkRepository {
 
     fun getUserRating(): Flow<List<UserStatisticDomain>>
 
-    fun createUser(email: String, name: String, type: Int, password: String): Flow<UserDomain>
+    fun createUser(email: String,department:Int, name: String, type: Int, password: String): Flow<UserDomain>
 
     fun loginUser(email: String, password: String): Flow<UserDomain>
 
