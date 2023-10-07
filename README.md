@@ -21,4 +21,5 @@
 * Прохождение в финал хакатона
 
 ## Сертификат
+https://codenrock.com/users/61831/certificates/100
 ![image](https://github.com/KatbertAllgood/kokoc_hackathon/assets/72415326/0cc579cb-7677-4844-a4db-17e8853ca2c8)
