@@ -113,12 +113,14 @@ class ProfileVM @Inject constructor(
     }
 
     fun logOut() {
-        if (achiv != null && user != null && stat != null && fund != null) {
-            deleteAchievementsUseCase()
-            deleteFundUseCase(fund!!)
-            deleteUserUseCase(user!!)
-            deleteUserStatisticUseCase(stat!!)
-            updatePrefsUseCase(Constants.IS_AUTH, false)
+        viewModelScope.launch {
+            if (achiv != null && user != null && stat != null && fund != null) {
+                deleteAchievementsUseCase()
+                deleteFundUseCase(fund!!)
+                deleteUserUseCase(user!!)
+                deleteUserStatisticUseCase(stat!!)
+                updatePrefsUseCase(Constants.IS_AUTH, false)
+            }
         }
     }
 }
