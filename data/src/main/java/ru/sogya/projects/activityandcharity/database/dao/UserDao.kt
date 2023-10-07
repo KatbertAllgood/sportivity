@@ -16,11 +16,11 @@ interface UserDao {
     fun getUser(): Flow<UserData>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertUser(userData: UserData): Long
+    suspend fun insertUser(userData: UserData): Long
 
     @Update
-    fun updateUser(userData: UserData): Int
+    suspend fun updateUser(userData: UserData): Int
 
     @Delete
-    fun deleteUser(userData: UserData): Int
+    suspend fun deleteUser(userData: UserData): Int
 }

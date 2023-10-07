@@ -23,7 +23,7 @@ import ru.sogya.projects.activityandcharity.mapper.UserStatisticDomainMapper
 class DatabaseRepositoryImpl(context: Context) : DatabaseRepository {
     private val db = Room.databaseBuilder(
         context, LocalDataBase::class.java, "local-data-base"
-    ).allowMainThreadQueries().build()
+    ).build()
 
     override fun getAllActivities(): Flow<List<ActivityDomain>> {
         return db.activityDao().getAllActivities()
@@ -96,15 +96,15 @@ class DatabaseRepositoryImpl(context: Context) : DatabaseRepository {
         return db.userDao().getUser()
     }
 
-    override fun insertUser(userData: UserDomain): Long {
+    override suspend fun insertUser(userData: UserDomain): Long {
         return db.userDao().insertUser(UserDomainMapper(userData).toData())
     }
 
-    override fun updateUser(userData: UserDomain): Int {
+    override suspend fun updateUser(userData: UserDomain): Int {
         return db.userDao().updateUser(UserDomainMapper(userData).toData())
     }
 
-    override fun deleteUser(userData: UserDomain): Int {
+    override suspend fun deleteUser(userData: UserDomain): Int {
         return db.userDao().updateUser(UserDomainMapper(userData).toData())
     }
 

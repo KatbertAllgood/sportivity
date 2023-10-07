@@ -4,5 +4,5 @@ import ru.sogya.projects.activityandcharity.domain.model.UserDomain
 import ru.sogya.projects.activityandcharity.domain.repository.DatabaseRepository
 
 class UpdateUserUseCase(private val databaseRepository: DatabaseRepository) {
-    operator fun invoke(userDomain: UserDomain) = databaseRepository.updateUser(userDomain)
+    suspend operator fun invoke(userDomain: UserDomain) = databaseRepository.updateUser(userDomain)
 }

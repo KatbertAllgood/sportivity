@@ -41,11 +41,11 @@ interface DatabaseRepository {
 
     fun getUser(): Flow<UserDomain>
 
-    fun insertUser(userData: UserDomain): Long
+    suspend fun insertUser(userData: UserDomain): Long
 
-    fun updateUser(userData: UserDomain): Int
+    suspend fun updateUser(userData: UserDomain): Int
 
-    fun deleteUser(userData: UserDomain): Int
+    suspend fun deleteUser(userData: UserDomain): Int
 
     fun getUserStatistic(): Flow<UserStatisticDomain>
 
