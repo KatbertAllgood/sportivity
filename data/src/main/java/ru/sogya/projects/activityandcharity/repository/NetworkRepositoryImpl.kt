@@ -64,18 +64,6 @@ class NetworkRepositoryImpl : NetworkRepository {
         )
     }
 
-    override fun getAllDepartments(): Flow<List<DepartmentDomain>> = flow {
-        emit(
-            NetworkService.getRetrofitService().getAllDepartment()
-        )
-    }
-
-    override fun getDepartmentById(departmentId: Int): Flow<DepartmentDomain> = flow {
-        emit(
-            NetworkService.getRetrofitService().getDepartmentById(departmentId)
-        )
-    }
-
     override fun getFundById(fundId: Int): Flow<FundDomain> = flow {
         emit(
             NetworkService.getRetrofitService().getFundById(fundId)

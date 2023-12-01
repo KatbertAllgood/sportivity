@@ -15,9 +15,6 @@ import ru.sogya.projects.activityandcharity.domain.usecase.database.activity_sta
 import ru.sogya.projects.activityandcharity.domain.usecase.database.activity_stat.GetActivityStatisticUseCase
 import ru.sogya.projects.activityandcharity.domain.usecase.database.activity_stat.InsertActivityStatisticUseCase
 import ru.sogya.projects.activityandcharity.domain.usecase.database.activity_stat.UpdateActivityStatisticUseCase
-import ru.sogya.projects.activityandcharity.domain.usecase.database.department.GetAllDepartmentsUseCase
-import ru.sogya.projects.activityandcharity.domain.usecase.database.department.InsertDepartmentsUseCase
-import ru.sogya.projects.activityandcharity.domain.usecase.database.department.UpdateDepartmentsUseCase
 import ru.sogya.projects.activityandcharity.domain.usecase.database.fund.DeleteFundUseCase
 import ru.sogya.projects.activityandcharity.domain.usecase.database.fund.GetFundUseCase
 import ru.sogya.projects.activityandcharity.domain.usecase.database.fund.InsertFundUseCase
@@ -61,18 +58,6 @@ class DatabaseModule {
     @Provides
     fun provideDeleteActivityStatisticUseCase(databaseRepository: DatabaseRepository) =
         DeleteActivityStatisticUseCase(databaseRepository)
-
-    @Provides
-    fun provideGetAllDepartmentsUseCase(databaseRepository: DatabaseRepository) =
-        GetAllDepartmentsUseCase(databaseRepository)
-
-    @Provides
-    fun provideInsertDepartmentsUseCase(databaseRepository: DatabaseRepository) =
-        InsertDepartmentsUseCase(databaseRepository)
-
-    @Provides
-    fun provideUpdateDepartmentsUseCase(databaseRepository: DatabaseRepository) =
-        UpdateDepartmentsUseCase(databaseRepository)
 
     @Provides
     fun provideGetFundUseCase(databaseRepository: DatabaseRepository) =

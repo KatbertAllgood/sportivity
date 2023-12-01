@@ -26,10 +26,6 @@ interface NetworkRepository {
 
     fun getAllFunds(): Flow<List<FundDomain>>
 
-    fun getAllDepartments(): Flow<List<DepartmentDomain>>
-
-    fun getDepartmentById(departmentId: Int): Flow<DepartmentDomain>
-
     fun getFundById(fundId: Int): Flow<FundDomain>
 
     fun getUserStatisticById(userId: Int): Flow<UserStatisticDomain>
