@@ -6,7 +6,6 @@ import ru.sogya.projects.activityandcharity.api.NetworkService
 import ru.sogya.projects.activityandcharity.domain.model.AchievementsDomain
 import ru.sogya.projects.activityandcharity.domain.model.ActivityDomain
 import ru.sogya.projects.activityandcharity.domain.model.ActivityStatisticDomain
-import ru.sogya.projects.activityandcharity.domain.model.DepartmentDomain
 import ru.sogya.projects.activityandcharity.domain.model.FundDomain
 import ru.sogya.projects.activityandcharity.domain.model.UserDomain
 import ru.sogya.projects.activityandcharity.domain.model.UserStatisticDomain
@@ -61,18 +60,6 @@ class NetworkRepositoryImpl : NetworkRepository {
     override fun getAllFunds(): Flow<List<FundDomain>> = flow {
         emit(
             NetworkService.getRetrofitService().getAllFund()
-        )
-    }
-
-    override fun getAllDepartments(): Flow<List<DepartmentDomain>> = flow {
-        emit(
-            NetworkService.getRetrofitService().getAllDepartment()
-        )
-    }
-
-    override fun getDepartmentById(departmentId: Int): Flow<DepartmentDomain> = flow {
-        emit(
-            NetworkService.getRetrofitService().getDepartmentById(departmentId)
         )
     }
 

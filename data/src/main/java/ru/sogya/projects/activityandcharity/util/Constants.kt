@@ -7,6 +7,7 @@ object Constants {
     const val USER_ID = "userId"
     const val USER_PASSWORD = ""
     const val IS_AUTH = "isAuth"
+    const val DATABASE_NAME = "sportivity_database"
 
 
     //UI

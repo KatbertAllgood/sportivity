@@ -8,8 +8,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.launch
-import ru.sogya.projects.activity_and_charity.mapper.ActivityStatisticDataMapper
-import ru.sogya.projects.activity_and_charity.mapper.UserStatisticDataMapper
+import ru.sogya.projects.activity_and_charity.mapper.toPresentation
 import ru.sogya.projects.activity_and_charity.model.ActivityStatisticPresentation
 import ru.sogya.projects.activity_and_charity.model.UserStatisticPresentation
 import ru.sogya.projects.activityandcharity.domain.usecase.database.user_stat.GetUserStatisticUseCase
@@ -26,31 +25,26 @@ class StatVM @Inject constructor(
     private val statLiveData = MutableLiveData<UserStatisticPresentation>()
     private val ratingLivaData = MutableLiveData<List<UserStatisticPresentation>>()
     private val activityStatistic = MutableLiveData<List<ActivityStatisticPresentation>>()
-    private var userId:Int? = null
+    private var userId: Int? = null
 
     init {
         viewModelScope.launch(Dispatchers.IO) {
             getUserRatingUseCase().catch {
                 Log.e("Error", it.message.toString())
             }.collect { userStatisticDomains ->
-                val userStat = userStatisticDomains.map {
-                    UserStatisticDataMapper(it).toData()
-                }
-                ratingLivaData.postValue(userStat)
+                ratingLivaData.postValue(userStatisticDomains.toPresentation())
             }
             getUserStatisticUseCase().catch {
                 Log.e("Error", it.message.toString())
             }.collect {
-                val stat = UserStatisticDataMapper(it).toData()
+                val stat = it.toPresentation()
                 userId = stat.userId
-                statLiveData.postValue(UserStatisticDataMapper(it).toData())
+                statLiveData.postValue(stat)
             }
             getActivityStatisticUseCase(userId!!).catch {
                 Log.e("Error", it.message.toString())
             }.collect {
-                val activityStat = it.map {
-                    ActivityStatisticDataMapper(it).toData()
-                }
+                val activityStat = it.toPresentation()
                 activityStatistic.postValue(activityStat)
             }
         }

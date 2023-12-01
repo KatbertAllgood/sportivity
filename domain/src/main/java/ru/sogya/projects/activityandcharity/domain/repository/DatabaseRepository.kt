@@ -4,7 +4,6 @@ import kotlinx.coroutines.flow.Flow
 import ru.sogya.projects.activityandcharity.domain.model.AchievementsDomain
 import ru.sogya.projects.activityandcharity.domain.model.ActivityDomain
 import ru.sogya.projects.activityandcharity.domain.model.ActivityStatisticDomain
-import ru.sogya.projects.activityandcharity.domain.model.DepartmentDomain
 import ru.sogya.projects.activityandcharity.domain.model.FundDomain
 import ru.sogya.projects.activityandcharity.domain.model.UserDomain
 import ru.sogya.projects.activityandcharity.domain.model.UserStatisticDomain
@@ -17,8 +16,6 @@ interface DatabaseRepository {
 
     fun updateActivities(activities: List<ActivityDomain>): Int
 
-    fun getAllDepartments(): Flow<List<DepartmentDomain>>
-
     fun getFund(): Flow<FundDomain>
 
     fun insertFund(fundData: FundDomain): Long
@@ -26,10 +23,6 @@ interface DatabaseRepository {
     fun updateFund(fundData: FundDomain): Int
 
     fun deleteFund(fundData: FundDomain): Int
-
-    fun insertDepartments(departments: List<DepartmentDomain>)
-
-    fun updateDepartments(departments: List<DepartmentDomain>): Int
 
     fun getActivityStatisticDomain(): Flow<ActivityStatisticDomain>
 
@@ -41,19 +34,19 @@ interface DatabaseRepository {
 
     fun getUser(): Flow<UserDomain>
 
-    suspend fun insertUser(userData: UserDomain): Long
+    suspend fun insertUser(userDomain: UserDomain): Long
 
-    suspend fun updateUser(userData: UserDomain): Int
+    suspend fun updateUser(userDomain: UserDomain): Int
 
-    suspend fun deleteUser(userData: UserDomain): Int
+    suspend fun deleteUser(userDomain: UserDomain): Int
 
     fun getUserStatistic(): Flow<UserStatisticDomain>
 
-    fun insertUserStatistic(userStatisticData: UserStatisticDomain): Long
+    fun insertUserStatistic(userStatisticDomain: UserStatisticDomain): Long
 
-    fun updateUserStatistic(userStatisticData: UserStatisticDomain): Int
+    fun updateUserStatistic(userStatisticDomain: UserStatisticDomain): Int
 
-    fun deleteUserStatistic(userStatisticData: UserStatisticDomain): Int
+    fun deleteUserStatistic(userStatisticDomain: UserStatisticDomain): Int
 
     fun getAchievements():Flow<AchievementsDomain>
 
