@@ -8,5 +8,5 @@ java {
     targetCompatibility = JavaVersion.VERSION_17
 }
 dependencies{
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.3")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.1")
 }
