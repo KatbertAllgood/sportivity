@@ -16,7 +16,6 @@ import ru.sogya.projects.activity_and_charity.model.UserStatisticPresentation
 import ru.sogya.projects.activityandcharity.domain.usecase.database.user.GetUserUseCase
 import ru.sogya.projects.activityandcharity.domain.usecase.database.user_stat.GetUserStatisticUseCase
 import ru.sogya.projects.activityandcharity.domain.usecase.network.activity.GetAllActivitiesUseCase
-import ru.sogya.projects.activityandcharity.mapper.toData
 import javax.inject.Inject
 
 @HiltViewModel
