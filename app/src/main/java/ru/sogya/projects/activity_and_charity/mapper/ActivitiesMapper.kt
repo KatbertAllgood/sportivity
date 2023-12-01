@@ -4,8 +4,6 @@ import ru.sogya.projects.activity_and_charity.model.ActivityPresentation
 import ru.sogya.projects.activity_and_charity.model.ActivityStatisticPresentation
 import ru.sogya.projects.activityandcharity.domain.model.ActivityDomain
 import ru.sogya.projects.activityandcharity.domain.model.ActivityStatisticDomain
-import ru.sogya.projects.activityandcharity.model.ActivityData
-import ru.sogya.projects.activityandcharity.model.ActivityStatisticData
 
 fun ActivityDomain.toPresentation(): ActivityPresentation =
     ActivityPresentation(title, id, valueType)
