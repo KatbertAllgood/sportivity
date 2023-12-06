@@ -1,10 +1,13 @@
 package ru.sogya.projects.activityandcharity.domain.repository.firebase
 
+import kotlinx.coroutines.flow.Flow
+import ru.sogya.projects.activityandcharity.domain.utils.State
+
 interface AuthRepository {
 
-    fun login(login: String, password: String)
+    suspend fun login(login: String, password: String): Flow<State<Boolean>>
 
-    fun registration(name: String, email: String, password: String)
+    suspend fun registration(name: String, email: String, password: String): Flow<State<Boolean>>
 
-    fun resetPassword(email: String)
+    suspend fun resetPassword(email: String): Flow<State<Boolean>>
 }
