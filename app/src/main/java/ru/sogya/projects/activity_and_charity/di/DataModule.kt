@@ -6,12 +6,15 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
+import ru.sogya.projects.activityandcharity.data.model.FirebaseAuthenticator
+import ru.sogya.projects.activityandcharity.data.repository.DatabaseRepositoryImpl
+import ru.sogya.projects.activityandcharity.data.repository.NetworkRepositoryImpl
+import ru.sogya.projects.activityandcharity.data.repository.SharedPreferencesRepositoryImpl
+import ru.sogya.projects.activityandcharity.data.repository.firebase.AuthRepositoryImpl
 import ru.sogya.projects.activityandcharity.domain.repository.DatabaseRepository
 import ru.sogya.projects.activityandcharity.domain.repository.NetworkRepository
 import ru.sogya.projects.activityandcharity.domain.repository.SharedPreferencesRepository
-import ru.sogya.projects.activityandcharity.repository.DatabaseRepositoryImpl
-import ru.sogya.projects.activityandcharity.repository.NetworkRepositoryImpl
-import ru.sogya.projects.activityandcharity.repository.SharedPreferencesRepositoryImpl
+import ru.sogya.projects.activityandcharity.domain.repository.firebase.AuthRepository
 import javax.inject.Singleton
 
 @Module
@@ -30,4 +33,9 @@ class DataModule {
     @Provides
     @Singleton
     fun provideNetworkRepository(): NetworkRepository = NetworkRepositoryImpl()
+
+    @Provides
+    @Singleton
+    fun provideFirebaseAuthRepository(firebaseAuthenticator: FirebaseAuthenticator): AuthRepository =
+        AuthRepositoryImpl(firebaseAuthenticator)
 }
