@@ -7,22 +7,16 @@ import ru.sogya.projects.activityandcharity.database.LocalDataBase
 import ru.sogya.projects.activityandcharity.domain.model.AchievementsDomain
 import ru.sogya.projects.activityandcharity.domain.model.ActivityDomain
 import ru.sogya.projects.activityandcharity.domain.model.ActivityStatisticDomain
-import ru.sogya.projects.activityandcharity.domain.model.DepartmentDomain
 import ru.sogya.projects.activityandcharity.domain.model.FundDomain
 import ru.sogya.projects.activityandcharity.domain.model.UserDomain
 import ru.sogya.projects.activityandcharity.domain.model.UserStatisticDomain
 import ru.sogya.projects.activityandcharity.domain.repository.DatabaseRepository
-import ru.sogya.projects.activityandcharity.mapper.AchievementsDomainMapper
-import ru.sogya.projects.activityandcharity.mapper.ActivityDomainMapper
-import ru.sogya.projects.activityandcharity.mapper.ActivityStatisticDomainMapper
-import ru.sogya.projects.activityandcharity.mapper.DepartmentsDomainMapper
-import ru.sogya.projects.activityandcharity.mapper.FundDomainMapper
-import ru.sogya.projects.activityandcharity.mapper.UserDomainMapper
-import ru.sogya.projects.activityandcharity.mapper.UserStatisticDomainMapper
+import ru.sogya.projects.activityandcharity.mapper.toData
+import ru.sogya.projects.activityandcharity.util.Constants
 
 class DatabaseRepositoryImpl(context: Context) : DatabaseRepository {
     private val db = Room.databaseBuilder(
-        context, LocalDataBase::class.java, "local-data-base"
+        context, LocalDataBase::class.java, Constants.DATABASE_NAME
     ).build()
 
     override fun getAllActivities(): Flow<List<ActivityDomain>> {
@@ -31,18 +25,14 @@ class DatabaseRepositoryImpl(context: Context) : DatabaseRepository {
 
     override fun insertActivities(activities: List<ActivityDomain>) {
         db.activityDao().insertActivities(activities.map {
-            ActivityDomainMapper(it).invoke()
+            it.toData()
         })
     }
 
     override fun updateActivities(activities: List<ActivityDomain>): Int {
         return db.activityDao().updateActivities(activities.map {
-            ActivityDomainMapper(it).invoke()
+            it.toData()
         })
-    }
-
-    override fun getAllDepartments(): Flow<List<DepartmentDomain>> {
-        return db.departmentDao().getAllDepartments()
     }
 
     override fun getFund(): Flow<FundDomain> {
@@ -50,27 +40,15 @@ class DatabaseRepositoryImpl(context: Context) : DatabaseRepository {
     }
 
     override fun insertFund(fundData: FundDomain): Long {
-        return db.fundDao().insertFund(FundDomainMapper(fundData).toData())
+        return db.fundDao().insertFund(fundData.toData())
     }
 
     override fun updateFund(fundData: FundDomain): Int {
-        return db.fundDao().updateFund(FundDomainMapper(fundData).toData())
+        return db.fundDao().updateFund(fundData.toData())
     }
 
     override fun deleteFund(fundData: FundDomain): Int {
-        return db.fundDao().deleteFund(FundDomainMapper(fundData).toData())
-    }
-
-    override fun insertDepartments(departments: List<DepartmentDomain>) {
-        db.departmentDao().insertDepartments(departments.map {
-            DepartmentsDomainMapper(it).toData()
-        })
-    }
-
-    override fun updateDepartments(departments: List<DepartmentDomain>): Int {
-        return db.departmentDao().updateDepartments(departments.map {
-            DepartmentsDomainMapper(it).toData()
-        })
+        return db.fundDao().deleteFund(fundData.toData())
     }
 
     override fun getActivityStatisticDomain(): Flow<ActivityStatisticDomain> {
@@ -79,52 +57,52 @@ class DatabaseRepositoryImpl(context: Context) : DatabaseRepository {
 
     override fun insertActivityStatistic(activityStatisticData: ActivityStatisticDomain): Long {
         return db.activityStatisticDao()
-            .insertActivityStatistic(ActivityStatisticDomainMapper(activityStatisticData).toData())
+            .insertActivityStatistic(activityStatisticData.toData())
     }
 
     override fun updateActivityStatistic(activityStatisticData: ActivityStatisticDomain): Int {
         return db.activityStatisticDao()
-            .updateActivityStatistic(ActivityStatisticDomainMapper(activityStatisticData).toData())
+            .updateActivityStatistic(activityStatisticData.toData())
     }
 
     override fun deleteActivityStatistic(activityStatisticData: ActivityStatisticDomain): Int {
         return db.activityStatisticDao()
-            .deleteActivityStatistic(ActivityStatisticDomainMapper(activityStatisticData).toData())
+            .deleteActivityStatistic(activityStatisticData.toData())
     }
 
     override fun getUser(): Flow<UserDomain> {
         return db.userDao().getUser()
     }
 
-    override suspend fun insertUser(userData: UserDomain): Long {
-        return db.userDao().insertUser(UserDomainMapper(userData).toData())
+    override suspend fun insertUser(userDomain: UserDomain): Long {
+        return db.userDao().insertUser(userDomain.toData())
     }
 
-    override suspend fun updateUser(userData: UserDomain): Int {
-        return db.userDao().updateUser(UserDomainMapper(userData).toData())
+    override suspend fun updateUser(userDomain: UserDomain): Int {
+        return db.userDao().updateUser(userDomain.toData())
     }
 
-    override suspend fun deleteUser(userData: UserDomain): Int {
-        return db.userDao().updateUser(UserDomainMapper(userData).toData())
+    override suspend fun deleteUser(userDomain: UserDomain): Int {
+        return db.userDao().updateUser(userDomain.toData())
     }
 
     override fun getUserStatistic(): Flow<UserStatisticDomain> {
         return db.userStatisticDao().getUserStatistic()
     }
 
-    override fun insertUserStatistic(userStatisticData: UserStatisticDomain): Long {
+    override fun insertUserStatistic(userStatisticDomain: UserStatisticDomain): Long {
         return db.userStatisticDao()
-            .insertUserStatistic(UserStatisticDomainMapper(userStatisticData).toData())
+            .insertUserStatistic(userStatisticDomain.toData())
     }
 
-    override fun updateUserStatistic(userStatisticData: UserStatisticDomain): Int {
+    override fun updateUserStatistic(userStatisticDomain: UserStatisticDomain): Int {
         return db.userStatisticDao()
-            .updateUserStatistic(UserStatisticDomainMapper(userStatisticData).toData())
+            .updateUserStatistic(userStatisticDomain.toData())
     }
 
-    override fun deleteUserStatistic(userStatisticData: UserStatisticDomain): Int {
+    override fun deleteUserStatistic(userStatisticDomain: UserStatisticDomain): Int {
         return db.userStatisticDao()
-            .deleteUserStatistic(UserStatisticDomainMapper(userStatisticData).toData())
+            .deleteUserStatistic(userStatisticDomain.toData())
     }
 
     override fun getAchievements(): Flow<AchievementsDomain> {
@@ -133,11 +111,11 @@ class DatabaseRepositoryImpl(context: Context) : DatabaseRepository {
 
     override fun insertAchievements(achievementsDomain: AchievementsDomain): Long {
         return db.achievementsDao()
-            .insertActhievements(AchievementsDomainMapper(achievementsDomain).toData())
+            .insertActhievements(achievementsDomain.toData())
     }
 
     override fun updateAchievements(achievementsDomain: AchievementsDomain): Int {
         return db.achievementsDao()
-            .updateAchievements(AchievementsDomainMapper(achievementsDomain).toData())
+            .updateAchievements(achievementsDomain.toData())
     }
 }
