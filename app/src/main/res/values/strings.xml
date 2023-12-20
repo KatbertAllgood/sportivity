@@ -41,6 +41,7 @@
     <string name="type_pass">Введите пароль</string>
     <string name="continue_">Продолжить</string>
     <string name="sing_in">Войти</string>
+    <string name="password">Пароль</string>
 
     <string name="registration">Регистрация</string>
     <string name="sing_up">Зарегистрироваться</string>
@@ -52,6 +53,10 @@
 
     <string name="name">Имя</string>
     <string name="last_name">Фамилия</string>
-    <string name="fio">Введите ФИО</string>
+    <string name="type_fio">Введите ФИО</string>
+    <string name="fio">ФИО</string>
+
+    <string name="entrance">Вход</string>
+    <string name="nickname">Индентификатор (Никнейм)</string>
 
 </resources>
