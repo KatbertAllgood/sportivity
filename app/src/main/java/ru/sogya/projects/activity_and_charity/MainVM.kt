@@ -1,4 +1,4 @@
-package ru.sogya.projects.activity_and_charity.ui.screens.mainscreen
+package ru.sogya.projects.activity_and_charity
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
