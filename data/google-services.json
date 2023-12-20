@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "651527821916",
+    "project_id": "sportivity-8a0b9",
+    "storage_bucket": "sportivity-8a0b9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:651527821916:android:ebb9d698387ddd31aca499",
+        "android_client_info": {
+          "package_name": "ru.sogya.projects.activity_and_charity"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAsZ8IzK9IrkoHLnYhfvDVTJx5RXW-KiT8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:651527821916:android:0a5778af4a580d4faca499",
+        "android_client_info": {
+          "package_name": "ru.sogya.projects.activityandcharity.data"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAsZ8IzK9IrkoHLnYhfvDVTJx5RXW-KiT8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
