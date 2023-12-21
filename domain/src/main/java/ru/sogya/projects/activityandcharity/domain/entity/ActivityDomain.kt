@@ -1,4 +1,4 @@
-package ru.sogya.projects.activityandcharity.domain.model
+package ru.sogya.projects.activityandcharity.domain.entity
 
 interface ActivityDomain {
     val id: Int

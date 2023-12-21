@@ -1,4 +1,4 @@
-package ru.sogya.projects.activityandcharity.data.model.request
+package ru.sogya.projects.activityandcharity.data.entity.request
 
 import com.google.gson.annotations.SerializedName
 

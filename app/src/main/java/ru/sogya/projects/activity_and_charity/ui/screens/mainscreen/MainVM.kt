@@ -10,9 +10,9 @@ import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.launch
 import ru.sogya.projects.activity_and_charity.mapper.toPresentation
-import ru.sogya.projects.activity_and_charity.model.ActivityPresentation
-import ru.sogya.projects.activity_and_charity.model.UserPresentation
-import ru.sogya.projects.activity_and_charity.model.UserStatisticPresentation
+import ru.sogya.projects.activity_and_charity.entity.ActivityPresentation
+import ru.sogya.projects.activity_and_charity.entity.UserPresentation
+import ru.sogya.projects.activity_and_charity.entity.UserStatisticPresentation
 import ru.sogya.projects.activityandcharity.domain.usecase.database.user.GetUserUseCase
 import ru.sogya.projects.activityandcharity.domain.usecase.database.user_stat.GetUserStatisticUseCase
 import ru.sogya.projects.activityandcharity.domain.usecase.network.activity.GetAllActivitiesUseCase

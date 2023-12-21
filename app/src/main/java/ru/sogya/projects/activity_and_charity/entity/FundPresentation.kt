@@ -1,6 +1,6 @@
-package ru.sogya.projects.activity_and_charity.model
+package ru.sogya.projects.activity_and_charity.entity
 
-import ru.sogya.projects.activityandcharity.domain.model.FundDomain
+import ru.sogya.projects.activityandcharity.domain.entity.FundDomain
 
 data class FundPresentation(
     override val id: Int,

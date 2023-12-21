@@ -6,7 +6,7 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
-import ru.sogya.projects.activityandcharity.data.model.FirebaseAuthenticator
+import ru.sogya.projects.activityandcharity.data.entity.FirebaseAuthenticator
 import ru.sogya.projects.activityandcharity.data.repository.DatabaseRepositoryImpl
 import ru.sogya.projects.activityandcharity.data.repository.NetworkRepositoryImpl
 import ru.sogya.projects.activityandcharity.data.repository.firebase.AuthRepositoryImpl

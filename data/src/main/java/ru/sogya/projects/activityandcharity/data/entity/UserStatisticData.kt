@@ -1,8 +1,8 @@
-package ru.sogya.projects.activityandcharity.data.model
+package ru.sogya.projects.activityandcharity.data.entity
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import ru.sogya.projects.activityandcharity.domain.model.UserStatisticDomain
+import ru.sogya.projects.activityandcharity.domain.entity.UserStatisticDomain
 
 @Entity(tableName = "user_statistic")
 data class UserStatisticData(

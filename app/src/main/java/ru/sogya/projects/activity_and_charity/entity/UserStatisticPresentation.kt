@@ -1,6 +1,6 @@
-package ru.sogya.projects.activity_and_charity.model
+package ru.sogya.projects.activity_and_charity.entity
 
-import ru.sogya.projects.activityandcharity.domain.model.UserStatisticDomain
+import ru.sogya.projects.activityandcharity.domain.entity.UserStatisticDomain
 
 data class UserStatisticPresentation(
     override val userId: Int,

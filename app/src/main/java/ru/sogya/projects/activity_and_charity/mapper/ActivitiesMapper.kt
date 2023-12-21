@@ -1,9 +1,9 @@
 package ru.sogya.projects.activity_and_charity.mapper
 
-import ru.sogya.projects.activity_and_charity.model.ActivityPresentation
-import ru.sogya.projects.activity_and_charity.model.ActivityStatisticPresentation
-import ru.sogya.projects.activityandcharity.domain.model.ActivityDomain
-import ru.sogya.projects.activityandcharity.domain.model.ActivityStatisticDomain
+import ru.sogya.projects.activity_and_charity.entity.ActivityPresentation
+import ru.sogya.projects.activity_and_charity.entity.ActivityStatisticPresentation
+import ru.sogya.projects.activityandcharity.domain.entity.ActivityDomain
+import ru.sogya.projects.activityandcharity.domain.entity.ActivityStatisticDomain
 
 fun ActivityDomain.toPresentation(): ActivityPresentation =
     ActivityPresentation(title, id, valueType)

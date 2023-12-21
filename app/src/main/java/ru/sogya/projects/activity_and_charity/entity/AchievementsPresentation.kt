@@ -1,6 +1,6 @@
-package ru.sogya.projects.activity_and_charity.model
+package ru.sogya.projects.activity_and_charity.entity
 
-import ru.sogya.projects.activityandcharity.domain.model.AchievementsDomain
+import ru.sogya.projects.activityandcharity.domain.entity.AchievementsDomain
 
 data class AchievementsPresentation(
     override val id: Int,

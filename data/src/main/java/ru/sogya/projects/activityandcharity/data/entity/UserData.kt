@@ -1,9 +1,9 @@
-package ru.sogya.projects.activityandcharity.data.model
+package ru.sogya.projects.activityandcharity.data.entity
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
-import ru.sogya.projects.activityandcharity.domain.model.UserDomain
+import ru.sogya.projects.activityandcharity.domain.entity.UserDomain
 
 @Entity(tableName = "users")
 data class UserData(

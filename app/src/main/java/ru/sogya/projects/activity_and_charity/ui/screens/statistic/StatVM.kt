@@ -9,8 +9,8 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.launch
 import ru.sogya.projects.activity_and_charity.mapper.toPresentation
-import ru.sogya.projects.activity_and_charity.model.ActivityStatisticPresentation
-import ru.sogya.projects.activity_and_charity.model.UserStatisticPresentation
+import ru.sogya.projects.activity_and_charity.entity.ActivityStatisticPresentation
+import ru.sogya.projects.activity_and_charity.entity.UserStatisticPresentation
 import ru.sogya.projects.activityandcharity.domain.usecase.database.user_stat.GetUserStatisticUseCase
 import ru.sogya.projects.activityandcharity.domain.usecase.network.activitystat.GetActivityStatisticByIdUseCase
 import ru.sogya.projects.activityandcharity.domain.usecase.network.rating.GetUserRatingUseCase

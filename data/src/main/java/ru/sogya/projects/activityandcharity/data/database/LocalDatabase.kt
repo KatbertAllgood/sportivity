@@ -8,12 +8,12 @@ import ru.sogya.projects.activityandcharity.data.database.dao.ActivityStatisticD
 import ru.sogya.projects.activityandcharity.data.database.dao.FundDao
 import ru.sogya.projects.activityandcharity.data.database.dao.UserDao
 import ru.sogya.projects.activityandcharity.data.database.dao.UserStatisticDao
-import ru.sogya.projects.activityandcharity.data.model.AchievementsData
-import ru.sogya.projects.activityandcharity.data.model.ActivityData
-import ru.sogya.projects.activityandcharity.data.model.ActivityStatisticData
-import ru.sogya.projects.activityandcharity.data.model.FundData
-import ru.sogya.projects.activityandcharity.data.model.UserData
-import ru.sogya.projects.activityandcharity.data.model.UserStatisticData
+import ru.sogya.projects.activityandcharity.data.entity.AchievementsData
+import ru.sogya.projects.activityandcharity.data.entity.ActivityData
+import ru.sogya.projects.activityandcharity.data.entity.ActivityStatisticData
+import ru.sogya.projects.activityandcharity.data.entity.FundData
+import ru.sogya.projects.activityandcharity.data.entity.UserData
+import ru.sogya.projects.activityandcharity.data.entity.UserStatisticData
 
 @Database(
     entities = [

@@ -1,6 +1,6 @@
-package ru.sogya.projects.activity_and_charity.model
+package ru.sogya.projects.activity_and_charity.entity
 
-import ru.sogya.projects.activityandcharity.domain.model.UserDomain
+import ru.sogya.projects.activityandcharity.domain.entity.UserDomain
 
 data class UserPresentation(
     override val id: Int,

@@ -7,7 +7,7 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Update
 import kotlinx.coroutines.flow.Flow
-import ru.sogya.projects.activityandcharity.data.model.UserData
+import ru.sogya.projects.activityandcharity.data.entity.UserData
 
 @Dao
 interface UserDao {

@@ -3,13 +3,13 @@ package ru.sogya.projects.activityandcharity.data.repository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import ru.sogya.projects.activityandcharity.data.api.NetworkService
-import ru.sogya.projects.activityandcharity.data.model.request.CreateUserRequest
-import ru.sogya.projects.activityandcharity.domain.model.AchievementsDomain
-import ru.sogya.projects.activityandcharity.domain.model.ActivityDomain
-import ru.sogya.projects.activityandcharity.domain.model.ActivityStatisticDomain
-import ru.sogya.projects.activityandcharity.domain.model.FundDomain
-import ru.sogya.projects.activityandcharity.domain.model.UserDomain
-import ru.sogya.projects.activityandcharity.domain.model.UserStatisticDomain
+import ru.sogya.projects.activityandcharity.data.entity.request.CreateUserRequest
+import ru.sogya.projects.activityandcharity.domain.entity.AchievementsDomain
+import ru.sogya.projects.activityandcharity.domain.entity.ActivityDomain
+import ru.sogya.projects.activityandcharity.domain.entity.ActivityStatisticDomain
+import ru.sogya.projects.activityandcharity.domain.entity.FundDomain
+import ru.sogya.projects.activityandcharity.domain.entity.UserDomain
+import ru.sogya.projects.activityandcharity.domain.entity.UserStatisticDomain
 import ru.sogya.projects.activityandcharity.domain.repository.NetworkRepository
 
 class NetworkRepositoryImpl : NetworkRepository {

@@ -4,13 +4,13 @@ import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.Path
-import ru.sogya.projects.activityandcharity.data.model.AchievementsData
-import ru.sogya.projects.activityandcharity.data.model.ActivityData
-import ru.sogya.projects.activityandcharity.data.model.ActivityStatisticData
-import ru.sogya.projects.activityandcharity.data.model.FundData
-import ru.sogya.projects.activityandcharity.data.model.UserData
-import ru.sogya.projects.activityandcharity.data.model.UserStatisticData
-import ru.sogya.projects.activityandcharity.data.model.request.CreateUserRequest
+import ru.sogya.projects.activityandcharity.data.entity.AchievementsData
+import ru.sogya.projects.activityandcharity.data.entity.ActivityData
+import ru.sogya.projects.activityandcharity.data.entity.ActivityStatisticData
+import ru.sogya.projects.activityandcharity.data.entity.FundData
+import ru.sogya.projects.activityandcharity.data.entity.UserData
+import ru.sogya.projects.activityandcharity.data.entity.UserStatisticData
+import ru.sogya.projects.activityandcharity.data.entity.request.CreateUserRequest
 
 interface NetworkApi {
 

@@ -1,6 +1,6 @@
 package ru.sogya.projects.activityandcharity.domain.usecase.database.user
 
-import ru.sogya.projects.activityandcharity.domain.model.UserDomain
+import ru.sogya.projects.activityandcharity.domain.entity.UserDomain
 import ru.sogya.projects.activityandcharity.domain.repository.DatabaseRepository
 
 class InsertUserUseCase(private val databaseRepository: DatabaseRepository) {
