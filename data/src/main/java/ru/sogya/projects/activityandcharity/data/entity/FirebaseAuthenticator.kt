@@ -1,6 +1,7 @@
-package ru.sogya.projects.activityandcharity.data.model
+package ru.sogya.projects.activityandcharity.data.entity
 
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseAuth.AuthStateListener
 import javax.inject.Inject
 
 class FirebaseAuthenticator @Inject constructor(private val firebaseAuth: FirebaseAuth) {
@@ -13,4 +14,7 @@ class FirebaseAuthenticator @Inject constructor(private val firebaseAuth: Fireba
     fun signOut() = firebaseAuth.signOut()
 
     fun sendPasswordReset(email: String) = firebaseAuth.sendPasswordResetEmail(email)
+
+    fun addUserStatusListener(authStateListener: AuthStateListener) =
+        firebaseAuth.addAuthStateListener(authStateListener)
 }
