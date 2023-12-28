@@ -10,4 +10,8 @@ import javax.inject.Inject
 class AuthVM @Inject constructor(
     private val signInUseCase: SignInUseCase,
     private val insertUserUseCase: InsertUserUseCase,
-) : ViewModel()
+) : ViewModel() {
+    fun checkIsUserExist(email: String) {
+
+    }
+}

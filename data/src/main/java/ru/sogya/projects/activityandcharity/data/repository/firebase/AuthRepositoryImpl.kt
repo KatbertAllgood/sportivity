@@ -3,7 +3,7 @@ package ru.sogya.projects.activityandcharity.data.repository.firebase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
-import ru.sogya.projects.activityandcharity.data.model.FirebaseAuthenticator
+import ru.sogya.projects.activityandcharity.data.util.FirebaseAuthenticator
 import ru.sogya.projects.activityandcharity.domain.repository.firebase.AuthRepository
 import ru.sogya.projects.activityandcharity.domain.utils.State
 

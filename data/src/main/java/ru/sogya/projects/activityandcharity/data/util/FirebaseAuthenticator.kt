@@ -1,4 +1,4 @@
-package ru.sogya.projects.activityandcharity.data.model
+package ru.sogya.projects.activityandcharity.data.util
 
 import com.google.firebase.auth.FirebaseAuth
 import javax.inject.Inject
