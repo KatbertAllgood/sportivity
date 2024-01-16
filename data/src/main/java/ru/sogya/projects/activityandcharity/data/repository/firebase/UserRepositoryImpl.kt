@@ -27,7 +27,7 @@ class UserStoreRepositoryImpl @Inject constructor(private val fireStoreUtil: Fir
             }
         }.flowOn(Dispatchers.IO)
 
-    override suspend fun createUser(user: UserDomain): Flow<State<Unit>> = flow {
+    override suspend fun createUser(user: UserDomain): Flow<State<Unit>> = flow<State<Unit>> {
         emit(State.loading())
         try {
             fireStoreUtil.storeObjectWithDocument(USER_COLLECTION, document = user.id, data = user)
@@ -37,7 +37,7 @@ class UserStoreRepositoryImpl @Inject constructor(private val fireStoreUtil: Fir
             e.printStackTrace()
             emit(State.failed(e.toString()))
         }
-    }
+    }.flowOn(Dispatchers.IO)
 
     companion object {
         private const val USER_COLLECTION = "Users"
