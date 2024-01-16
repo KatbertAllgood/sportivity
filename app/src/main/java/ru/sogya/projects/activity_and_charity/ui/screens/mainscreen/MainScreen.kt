@@ -2,7 +2,6 @@ package ru.sogya.projects.activity_and_charity.ui.screens.mainscreen
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.horizontalScroll
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -24,12 +23,13 @@ import ru.sogya.projects.activity_and_charity.R
 import ru.sogya.projects.activity_and_charity.ui.screens.mainscreen.item.ActivityItemComposable
 import ru.sogya.projects.activity_and_charity.ui.screens.mainscreen.item.StatItemComposable
 import ru.sogya.projects.activity_and_charity.ui.theme.ActivityAndCharityTheme
+import ru.sogya.projects.activity_and_charity.ui.theme.AppTheme
 
 @Composable
 fun MainScreenComposable(
 
 ) {
-    ActivityAndCharityTheme {
+    AppTheme {
         Column(
             modifier = Modifier
                 .background(

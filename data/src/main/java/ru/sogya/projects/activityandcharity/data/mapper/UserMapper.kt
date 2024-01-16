@@ -7,7 +7,7 @@ import ru.sogya.projects.activityandcharity.domain.model.UserDomain
 import ru.sogya.projects.activityandcharity.domain.model.UserStatisticDomain
 
 fun UserDomain.toData(): UserData = UserData(
-    id, name, email, achievementsId, departmentId, type, photoUrl, fundId
+    id, name, email, photoUrl, tag
 )
 
 fun UserStatisticDomain.toData(): UserStatisticData = UserStatisticData(

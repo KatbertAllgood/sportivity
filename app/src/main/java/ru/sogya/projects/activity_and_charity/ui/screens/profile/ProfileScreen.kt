@@ -31,10 +31,11 @@ import ru.sogya.projects.activity_and_charity.ui.screens.profile.item.FundItemCo
 import ru.sogya.projects.activity_and_charity.ui.screens.profile.item.LastAchievementItemComposable
 import ru.sogya.projects.activity_and_charity.ui.screens.profile.item.LvlProgressItemComposable
 import ru.sogya.projects.activity_and_charity.ui.theme.ActivityAndCharityTheme
+import ru.sogya.projects.activity_and_charity.ui.theme.AppTheme
 
 @Composable
 fun ProfileScreenComposable(){
-    ActivityAndCharityTheme {
+    AppTheme {
         Column(
             modifier = Modifier
                 .fillMaxSize()

@@ -4,6 +4,9 @@ import com.google.firebase.auth.FirebaseAuth
 import javax.inject.Inject
 
 class FirebaseAuthenticator @Inject constructor(private val firebaseAuth: FirebaseAuth) {
+
+    val currentUser = firebaseAuth.currentUser
+
     fun signUpWithEmailPassword(email: String, password: String) =
         firebaseAuth.createUserWithEmailAndPassword(email, password)
 
