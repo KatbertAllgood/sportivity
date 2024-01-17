@@ -16,6 +16,7 @@ data class ActivityAndCharityColors(
     val white: Color,
     val disable: Color,
     val secondaryText: Color,
+    val accentDisabled: Color
 )
 
 data class ActivityAndCharityTypography(

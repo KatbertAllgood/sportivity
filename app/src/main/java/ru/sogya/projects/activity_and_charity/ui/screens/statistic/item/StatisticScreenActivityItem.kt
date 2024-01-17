@@ -1,14 +1,12 @@
 package ru.sogya.projects.activity_and_charity.ui.screens.statistic.item
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -27,7 +25,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import ru.sogya.projects.activity_and_charity.R
 import ru.sogya.projects.activity_and_charity.ui.theme.ActivityAndCharityTheme
-import ru.sogya.projects.activityandcharity.util.Constants
+import ru.sogya.projects.activity_and_charity.ui.theme.AppTheme
+import ru.sogya.projects.activityandcharity.domain.utils.Constants
 
 @Composable
 fun ActivityItemStatScreenComposable(
@@ -37,7 +36,7 @@ fun ActivityItemStatScreenComposable(
     earned: String,
     img: Int
 ) {
-    ActivityAndCharityTheme {
+    AppTheme {
         Card(
             shape = ActivityAndCharityTheme.shape.cornersStyle,
             elevation = CardDefaults.cardElevation(0.dp),

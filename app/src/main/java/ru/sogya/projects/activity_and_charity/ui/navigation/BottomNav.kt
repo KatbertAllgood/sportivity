@@ -33,8 +33,8 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import ru.sogya.projects.activity_and_charity.ui.theme.ActivityAndCharityTheme
+import ru.sogya.projects.activity_and_charity.ui.theme.AppTheme
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun BottomNav() {
     val navController = rememberNavController()
@@ -60,8 +60,7 @@ fun BottomBar(navController: NavHostController) {
     val navStackBackEntry by navController.currentBackStackEntryAsState()
     val currentDestination = navStackBackEntry?.destination
 
-    ActivityAndCharityTheme {
-
+    AppTheme {
         Card(
             shape = ActivityAndCharityTheme.shape.cornersStyle,
             elevation = CardDefaults.cardElevation(0.dp),
@@ -103,7 +102,7 @@ fun RowScope.AddItem(
     currentDestination: NavDestination?,
     navController: NavHostController
 ) {
-    ActivityAndCharityTheme {
+    AppTheme {
 
         val selected = currentDestination?.hierarchy?.any { it.route == screen.route } == true
 

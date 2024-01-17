@@ -1,27 +1,28 @@
 package ru.sogya.projects.activity_and_charity.ui.navigation
 
 import androidx.compose.runtime.Composable
-import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import ru.sogya.projects.activity_and_charity.ui.screens.auth.AuthScreenComposable
+import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
+import ru.sogya.projects.activity_and_charity.ui.screens.auth.enter.EnterScreenContent
+import ru.sogya.projects.activity_and_charity.ui.screens.auth.login.LoginScreenContent
+import ru.sogya.projects.activity_and_charity.ui.screens.auth.registration.RegistrationScreenContent
 import ru.sogya.projects.activity_and_charity.ui.screens.mainscreen.MainScreenComposable
 import ru.sogya.projects.activity_and_charity.ui.screens.profile.ProfileScreenComposable
-import ru.sogya.projects.activity_and_charity.ui.screens.registration.RegistrationScreenComposable
-import ru.sogya.projects.activity_and_charity.ui.screens.registration.RegistrationVM
 import ru.sogya.projects.activity_and_charity.ui.screens.statistic.StatisticScreenComposable
 
 @Composable
 fun NavGraph(
-    navController: NavHostController
+    navController: NavHostController = rememberNavController(),
+    startDestination: String = "enter"
 ) {
-
-
 
     NavHost(
         navController = navController,
-        startDestination = "reg"
+        startDestination = startDestination
     ) {
         composable(route = BottomBarScreen.Main.route) {
             MainScreenComposable()
@@ -32,23 +33,32 @@ fun NavGraph(
         composable(route = BottomBarScreen.Profile.route) {
             ProfileScreenComposable()
         }
-        composable(route = "auth") {
-            AuthScreenComposable(
-                onClick = {
-                    navController.navigate("reg")
+        composable(route = "enter") {
+            EnterScreenContent(
+                onNavigateToSignIn = { email ->
+                    navController.navigate(route = "signIn/$email")
+                },
+                onNavigateToRegistration = { email ->
+                    navController.navigate(route = "registration/$email")
                 }
             )
         }
-        composable(route = "reg") {
+        composable(
+            route = "signIn/{email}",
+            arguments = listOf(navArgument("email") { type = NavType.StringType })
+        ) { backStackEntry ->
+            LoginScreenContent(backStackEntry.arguments?.getString("email"), onNavigateToMainScreen = {
+                navController.navigate(route = BottomBarScreen.Main.route)
+            })
+        }
 
-            val viewModel = hiltViewModel<RegistrationVM>()
-
-            RegistrationScreenComposable(
-                viewModel = viewModel,
-                navigateToMainScreen = {
-                    navController.navigate(BottomBarScreen.Main.route)
-                }
-            )
+        composable(
+            route = "registration/{email}",
+            arguments = listOf(navArgument("email") { type = NavType.StringType })
+        ) { backStackEntry ->
+            RegistrationScreenContent(backStackEntry.arguments?.getString("email"), onNavigateToMainScreen = {
+                navController.navigate(route = BottomBarScreen.Main.route)
+            })
         }
     }
 }

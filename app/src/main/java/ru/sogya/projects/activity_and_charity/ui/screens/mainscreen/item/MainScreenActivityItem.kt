@@ -20,13 +20,14 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import ru.sogya.projects.activity_and_charity.R
 import ru.sogya.projects.activity_and_charity.ui.theme.ActivityAndCharityTheme
+import ru.sogya.projects.activity_and_charity.ui.theme.AppTheme
 
 @Composable
 fun ActivityItemComposable(
     img: Int,
     activityText: Int
 ) {
-    ActivityAndCharityTheme {
+    AppTheme {
         Card(
             shape = ActivityAndCharityTheme.shape.cornersStyle,
             elevation = CardDefaults.cardElevation(0.dp),

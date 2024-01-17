@@ -6,21 +6,21 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
+import ru.sogya.projects.activityandcharity.data.repository.DatabaseRepositoryImpl
+import ru.sogya.projects.activityandcharity.data.repository.NetworkRepositoryImpl
+import ru.sogya.projects.activityandcharity.data.repository.firebase.AuthRepositoryImpl
+import ru.sogya.projects.activityandcharity.data.repository.firebase.UserStoreRepositoryImpl
+import ru.sogya.projects.activityandcharity.data.util.FireStoreUtil
+import ru.sogya.projects.activityandcharity.data.util.FirebaseAuthenticator
 import ru.sogya.projects.activityandcharity.domain.repository.DatabaseRepository
 import ru.sogya.projects.activityandcharity.domain.repository.NetworkRepository
-import ru.sogya.projects.activityandcharity.domain.repository.SharedPreferencesRepository
-import ru.sogya.projects.activityandcharity.repository.DatabaseRepositoryImpl
-import ru.sogya.projects.activityandcharity.repository.NetworkRepositoryImpl
-import ru.sogya.projects.activityandcharity.repository.SharedPreferencesRepositoryImpl
+import ru.sogya.projects.activityandcharity.domain.repository.firebase.AuthRepository
+import ru.sogya.projects.activityandcharity.domain.repository.firebase.UserStoreRepository
 import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
 class DataModule {
-    @Provides
-    @Singleton
-    fun provideSharedPreferencesRepository(@ApplicationContext context: Context): SharedPreferencesRepository =
-        SharedPreferencesRepositoryImpl(context = context)
 
     @Provides
     @Singleton
@@ -30,4 +30,16 @@ class DataModule {
     @Provides
     @Singleton
     fun provideNetworkRepository(): NetworkRepository = NetworkRepositoryImpl()
+
+    @Provides
+    @Singleton
+    fun provideFirebaseAuthRepository(
+        firebaseAuthenticator: FirebaseAuthenticator,
+        userStoreRepository: UserStoreRepository
+    ): AuthRepository = AuthRepositoryImpl(firebaseAuthenticator, userStoreRepository)
+
+    @Provides
+    @Singleton
+    fun provideUserStoreRepository(fireStoreUtil: FireStoreUtil): UserStoreRepository =
+        UserStoreRepositoryImpl(fireStoreUtil)
 }

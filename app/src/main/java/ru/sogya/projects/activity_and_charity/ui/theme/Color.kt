@@ -9,5 +9,6 @@ internal val basePalette = ActivityAndCharityColors(
     accent = Color(0xFFEAFAB1),
     white = Color(0xFFFFFFFF),
     disable = Color(0xFF525252),
-    secondaryText = Color(0xFF8C8C8C)
+    secondaryText = Color(0xFF8C8C8C),
+    accentDisabled = Color(0x99EAFAB1)
 )

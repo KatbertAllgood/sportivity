@@ -10,8 +10,6 @@ import ru.sogya.projects.activityandcharity.domain.usecase.network.activity.GetA
 import ru.sogya.projects.activityandcharity.domain.usecase.network.activitystat.GetActivityStatisticByIdUseCase
 import ru.sogya.projects.activityandcharity.domain.usecase.network.auth.CreateUserUseCase
 import ru.sogya.projects.activityandcharity.domain.usecase.network.auth.LoginUserUseCase
-import ru.sogya.projects.activityandcharity.domain.usecase.network.departments.GetAllDepartmentsUseCase
-import ru.sogya.projects.activityandcharity.domain.usecase.network.departments.GetDepartmentByIdUseCase
 import ru.sogya.projects.activityandcharity.domain.usecase.network.fund.GetAllFundUseCase
 import ru.sogya.projects.activityandcharity.domain.usecase.network.fund.GetFundByIdUseCase
 import ru.sogya.projects.activityandcharity.domain.usecase.network.rating.GetUserRatingUseCase
@@ -42,14 +40,6 @@ class NetworkModule {
     @Provides
     fun provideLoginUserUseCase(networkRepository: NetworkRepository) =
         LoginUserUseCase(networkRepository)
-
-    @Provides
-    fun provideGetAllDepartmentsUseCase(networkRepository: NetworkRepository) =
-        GetAllDepartmentsUseCase(networkRepository)
-
-    @Provides
-    fun provideGetDepartmentByIdUseCase(networkRepository: NetworkRepository) =
-        GetDepartmentByIdUseCase(networkRepository)
 
     @Provides
     fun provideGetAllFundUseCase(networkRepository: NetworkRepository) =
