@@ -25,6 +25,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import ru.sogya.projects.activity_and_charity.R
 import ru.sogya.projects.activity_and_charity.ui.theme.ActivityAndCharityTheme
+import ru.sogya.projects.activity_and_charity.ui.theme.AppTheme
 import ru.sogya.projects.activityandcharity.domain.utils.Constants
 
 @Composable
@@ -35,7 +36,7 @@ fun ActivityItemStatScreenComposable(
     earned: String,
     img: Int
 ) {
-    ActivityAndCharityTheme {
+    AppTheme {
         Card(
             shape = ActivityAndCharityTheme.shape.cornersStyle,
             elevation = CardDefaults.cardElevation(0.dp),

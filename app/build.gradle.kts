@@ -61,7 +61,8 @@ dependencies {
 
     implementation("androidx.navigation:navigation-compose:2.7.5")
 
-    implementation("androidx.compose.material3:material3:1.2.0-alpha12")
+    implementation("androidx.compose.material3:material3:1.2.0-beta02")
+    implementation("androidx.compose.material:material:1.5.4")
 
     implementation(project(mapOf("path" to ":data")))
     implementation(project(mapOf("path" to ":domain")))
@@ -74,6 +75,7 @@ dependencies {
     implementation("androidx.compose.ui:ui-tooling-preview")
     implementation("androidx.compose.material3:material3")
     implementation(platform("com.google.firebase:firebase-bom:32.6.0"))
+    implementation("androidx.wear.compose:compose-material:1.2.1")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")

@@ -9,19 +9,12 @@ import ru.sogya.projects.activityandcharity.domain.model.UserDomain
 data class UserData(
     @PrimaryKey
     @SerializedName("id")
-    override val id: Int,
+    override val id: String,
     @SerializedName("name")
     override val name: String,
     @SerializedName("email")
     override val email: String,
-    @SerializedName("achievementsId")
-    override val achievementsId: Int,
-    @SerializedName("departmentsId")
-    override val departmentId: Int,
-    @SerializedName("type")
-    override val type: Int,
     @SerializedName("photoUrl")
     override val photoUrl: String? = "",
-    @SerializedName("fundid")
-    override val fundId: Int
+    override val tag: String,
 ) : UserDomain

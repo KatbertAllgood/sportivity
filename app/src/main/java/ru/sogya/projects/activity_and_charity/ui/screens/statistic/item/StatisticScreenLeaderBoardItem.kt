@@ -25,10 +25,11 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import ru.sogya.projects.activity_and_charity.R
 import ru.sogya.projects.activity_and_charity.ui.theme.ActivityAndCharityTheme
+import ru.sogya.projects.activity_and_charity.ui.theme.AppTheme
 
 @Composable
 fun LeaderBoardItemComposable() {
-    ActivityAndCharityTheme {
+    AppTheme {
         Card(
             shape = ActivityAndCharityTheme.shape.cornersStyle,
             elevation = CardDefaults.cardElevation(0.dp),
@@ -72,7 +73,7 @@ fun LeaderBoardItemComposable() {
 
 @Composable
 private fun PersonItemInLeaderBoard() {
-    ActivityAndCharityTheme {
+    AppTheme {
 
         Card(
             shape = ActivityAndCharityTheme.shape.cornersStyle,

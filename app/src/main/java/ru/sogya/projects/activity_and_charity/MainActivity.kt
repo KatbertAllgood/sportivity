@@ -7,7 +7,7 @@ import androidx.activity.viewModels
 import dagger.hilt.android.AndroidEntryPoint
 import ru.sogya.projects.activity_and_charity.ui.screens.mainscreen.MainVM
 import ru.sogya.projects.activity_and_charity.ui.navigation.BottomNav
-import ru.sogya.projects.activity_and_charity.ui.theme.ActivityAndCharityTheme
+import ru.sogya.projects.activity_and_charity.ui.theme.AppTheme
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
@@ -15,7 +15,7 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            ActivityAndCharityTheme {
+            AppTheme {
                 BottomNav()
             }
         }

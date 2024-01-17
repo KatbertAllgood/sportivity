@@ -1,31 +1,25 @@
 package ru.sogya.projects.activity_and_charity.ui.theme
 
-import android.app.Activity
-import android.os.Build
-import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.darkColorScheme
-import androidx.compose.material3.dynamicDarkColorScheme
-import androidx.compose.material3.dynamicLightColorScheme
-import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
-import androidx.compose.runtime.SideEffect
-import androidx.compose.ui.graphics.toArgb
-import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.platform.LocalView
+import androidx.compose.runtime.ReadOnlyComposable
+import androidx.compose.runtime.Stable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
+import androidx.compose.runtime.staticCompositionLocalOf
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.core.view.WindowCompat
 import ru.sogya.projects.activity_and_charity.R
 
 @Composable
-internal fun ActivityAndCharityTheme(
+internal fun AppTheme(
     textSize: ActivityAndCharitySize = ActivityAndCharitySize.Medium,
     paddingSize: ActivityAndCharitySize = ActivityAndCharitySize.Medium,
     corners: ActivityAndCharityCorners = ActivityAndCharityCorners.Rounded,
@@ -91,5 +85,65 @@ internal fun ActivityAndCharityTheme(
         LocalActivityAndCharityShape provides shapes,
         content = content
     )
-
 }
+
+object AppTheme {
+    val colors: ActivityAndCharityColors
+        @Composable
+        @ReadOnlyComposable
+        get() = LocalActivityAndCharityColors.current
+
+    val typography: AppTypography
+        @Composable
+        @ReadOnlyComposable
+        get() = LocalAppTypography.current
+}
+
+//
+//@Composable
+//fun AppTheme(
+//    useDarkTheme: Boolean = true,
+//    typography: AppTypography = AppTheme.typography,
+//    content: @Composable () -> Unit,
+//) {
+//    val colors = basePalette
+//    MaterialTheme(
+//        colorScheme = debugColors(),
+//        typography = MaterialTypography,
+//    ) {
+//        CompositionLocalProvider(
+//            LocalAppTypography provides typography,
+//            LocalContentColor provides colors.darkBlue,
+//            content = content,
+//        )
+//    }
+//}
+//
+//object AppTheme {
+//    val colors: AppColors
+//        @Composable
+//        @ReadOnlyComposable
+//        get() = LocalAppColors.current
+//
+//    val typography: AppTypography
+//        @Composable
+//        @ReadOnlyComposable
+//        get() = LocalAppTypography.current
+//}
+//
+//fun debugColors() = Colors(
+//    primary = DebugColor,
+//    primaryVariant = DebugColor,
+//    secondary = DebugColor,
+//    secondaryVariant = DebugColor,
+//    background = DebugColor,
+//    surface = DebugColor,
+//    error = DebugColor,
+//    onPrimary = DebugColor,
+//    onSecondary = DebugColor,
+//    onBackground = DebugColor,
+//    onSurface = DebugColor,
+//    onError = DebugColor,
+//)
+//
+//private val DebugColor = Color.Magenta

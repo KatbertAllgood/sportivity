@@ -21,11 +21,12 @@ import ru.sogya.projects.activity_and_charity.ui.screens.statistic.item.Activity
 import ru.sogya.projects.activity_and_charity.ui.screens.statistic.item.DonationItem
 import ru.sogya.projects.activity_and_charity.ui.screens.statistic.item.LeaderBoardItemComposable
 import ru.sogya.projects.activity_and_charity.ui.theme.ActivityAndCharityTheme
+import ru.sogya.projects.activity_and_charity.ui.theme.AppTheme
 import ru.sogya.projects.activityandcharity.domain.utils.Constants
 
 @Composable
 fun StatisticScreenComposable() {
-    ActivityAndCharityTheme {
+    AppTheme {
         Column(
             modifier = Modifier
                 .background(
