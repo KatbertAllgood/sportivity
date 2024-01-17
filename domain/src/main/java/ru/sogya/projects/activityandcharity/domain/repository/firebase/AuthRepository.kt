@@ -10,4 +10,6 @@ interface AuthRepository {
     suspend fun registration(name: String, email: String, password: String): Flow<State<Unit>>
 
     suspend fun resetPassword(email: String): Flow<State<Unit>>
+
+    suspend fun logOut(): Flow<State<Unit>>
 }

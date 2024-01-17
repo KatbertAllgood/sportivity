@@ -1,6 +1,5 @@
 package ru.sogya.projects.activityandcharity.data.repository.firebase
 
-import android.util.Log
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
@@ -41,6 +40,5 @@ class UserStoreRepositoryImpl @Inject constructor(private val fireStoreUtil: Fir
 
     companion object {
         private const val USER_COLLECTION = "Users"
-        private const val USER_EMAIL = "Email"
     }
 }
