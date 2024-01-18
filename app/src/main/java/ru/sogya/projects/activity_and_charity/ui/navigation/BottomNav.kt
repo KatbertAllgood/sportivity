@@ -1,12 +1,13 @@
 package ru.sogya.projects.activity_and_charity.ui.navigation
 
 import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.slideInVertically
+import androidx.compose.animation.slideOutVertically
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -17,7 +18,10 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.State
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -36,11 +40,29 @@ import ru.sogya.projects.activity_and_charity.ui.theme.AppTheme
 
 @Composable
 fun BottomNav() {
+
     val navController = rememberNavController()
+
+    val bottomBarState = rememberSaveable { (mutableStateOf(false)) }
+
+    when (currentRoute(navController)) {
+        ONBOARDING, AUTH_ENTER, AUTH_REGISTRATION, AUTH_SIGNIN -> {
+            bottomBarState.value = false
+        }
+
+        BottomBarScreen.Stats.route,
+        BottomBarScreen.Main.route,
+        BottomBarScreen.Profile.route -> {
+            bottomBarState.value = true
+        }
+    }
 
     Scaffold(
         bottomBar = {
-            if (currentRoute(navController = navController) != "auth") BottomBar(navController = navController)
+            BottomBar(
+                navController = navController,
+                bottomBarState = bottomBarState
+            )
         }
     ) {
         Modifier.padding(it)
@@ -50,61 +72,72 @@ fun BottomNav() {
     }
 }
 
+const val ONBOARDING = "onboarding"
+const val AUTH_ENTER = "enter"
+const val AUTH_SIGNIN = "signIn/{email}"
+const val AUTH_REGISTRATION = "registration/{email}"
+
 @Composable
-public fun currentRoute(navController: NavHostController): String? {
+fun currentRoute(navController: NavHostController): String? {
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     return navBackStackEntry?.destination?.route
 }
 
 @Composable
-fun BottomBar(navController: NavHostController) {
+fun BottomBar(navController: NavHostController, bottomBarState: State<Boolean>) {
     val screens = listOf(
         BottomBarScreen.Stats,
         BottomBarScreen.Main,
         BottomBarScreen.Profile
     )
+    AnimatedVisibility(
+        visible = bottomBarState.value,
+        enter = slideInVertically(initialOffsetY = { it }),
+        exit = slideOutVertically(targetOffsetY = { it }),
+        content = {
 
-    val navStackBackEntry by navController.currentBackStackEntryAsState()
-    val currentDestination = navStackBackEntry?.destination
+            val navStackBackEntry by navController.currentBackStackEntryAsState()
+            val currentDestination = navStackBackEntry?.destination
 
-    AppTheme {
-        Card(
-            shape = ActivityAndCharityTheme.shape.cornersStyle,
-            elevation = CardDefaults.cardElevation(0.dp),
-            colors = CardDefaults.cardColors(
-                containerColor = ActivityAndCharityTheme.colors.secondary
-            ),
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(
-                    start = 20.dp,
-                    end = 20.dp,
-                    top = 32.dp,
-                    bottom = 32.dp
-                )
-        ) {
+            AppTheme {
+                Card(
+                    shape = ActivityAndCharityTheme.shape.cornersStyle,
+                    elevation = CardDefaults.cardElevation(0.dp),
+                    colors = CardDefaults.cardColors(
+                        containerColor = ActivityAndCharityTheme.colors.secondary
+                    ),
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(
+                            start = 20.dp,
+                            end = 20.dp,
+                            top = 32.dp,
+                            bottom = 32.dp
+                        )
+                ) {
 
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(56.dp),
-                horizontalArrangement = Arrangement.SpaceEvenly,
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                screens.forEach { screen ->
-                    AddItem(
-                        screen = screen,
-                        currentDestination = currentDestination,
-                        navController = navController
-                    )
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(56.dp),
+                        horizontalArrangement = Arrangement.SpaceEvenly,
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        screens.forEach { screen ->
+                            AddItem(
+                                screen = screen,
+                                currentDestination = currentDestination,
+                                navController = navController
+                            )
+                        }
+                    }
                 }
             }
-        }
-    }
+        })
 }
 
 @Composable
-fun RowScope.AddItem(
+fun AddItem(
     screen: BottomBarScreen,
     currentDestination: NavDestination?,
     navController: NavHostController

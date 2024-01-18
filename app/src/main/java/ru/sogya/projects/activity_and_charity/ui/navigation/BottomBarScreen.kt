@@ -1,6 +1,5 @@
 package ru.sogya.projects.activity_and_charity.ui.navigation
 
-import androidx.compose.ui.res.stringResource
 import ru.sogya.projects.activity_and_charity.R
 
 sealed class BottomBarScreen(

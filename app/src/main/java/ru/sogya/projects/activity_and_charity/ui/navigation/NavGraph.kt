@@ -11,13 +11,14 @@ import ru.sogya.projects.activity_and_charity.ui.screens.auth.enter.EnterScreenC
 import ru.sogya.projects.activity_and_charity.ui.screens.auth.login.LoginScreenContent
 import ru.sogya.projects.activity_and_charity.ui.screens.auth.registration.RegistrationScreenContent
 import ru.sogya.projects.activity_and_charity.ui.screens.mainscreen.MainScreenComposable
+import ru.sogya.projects.activity_and_charity.ui.screens.onboarding.OnboardingScreenContent
 import ru.sogya.projects.activity_and_charity.ui.screens.profile.ProfileScreenComposable
 import ru.sogya.projects.activity_and_charity.ui.screens.statistic.StatisticScreenComposable
 
 @Composable
 fun NavGraph(
     navController: NavHostController = rememberNavController(),
-    startDestination: String = "enter"
+    startDestination: String = ONBOARDING
 ) {
 
     NavHost(
@@ -33,7 +34,7 @@ fun NavGraph(
         composable(route = BottomBarScreen.Profile.route) {
             ProfileScreenComposable()
         }
-        composable(route = "enter") {
+        composable(route = AUTH_ENTER) {
             EnterScreenContent(
                 onNavigateToSignIn = { email ->
                     navController.navigate(route = "signIn/$email")
@@ -44,21 +45,33 @@ fun NavGraph(
             )
         }
         composable(
-            route = "signIn/{email}",
+            route = AUTH_SIGNIN,
             arguments = listOf(navArgument("email") { type = NavType.StringType })
         ) { backStackEntry ->
-            LoginScreenContent(backStackEntry.arguments?.getString("email"), onNavigateToMainScreen = {
-                navController.navigate(route = BottomBarScreen.Main.route)
-            })
+            LoginScreenContent(
+                backStackEntry.arguments?.getString("email"),
+                onNavigateToMainScreen = {
+                    navController.navigate(route = BottomBarScreen.Main.route)
+                })
         }
 
         composable(
-            route = "registration/{email}",
+            route = AUTH_REGISTRATION,
             arguments = listOf(navArgument("email") { type = NavType.StringType })
         ) { backStackEntry ->
-            RegistrationScreenContent(backStackEntry.arguments?.getString("email"), onNavigateToMainScreen = {
+            RegistrationScreenContent(
+                backStackEntry.arguments?.getString("email"),
+                onNavigateToMainScreen = {
+                    navController.navigate(route = BottomBarScreen.Main.route)
+                })
+        }
+
+        composable(
+            route = ONBOARDING,
+        ) {
+            OnboardingScreenContent(onNavigateToMainScreen = {
                 navController.navigate(route = BottomBarScreen.Main.route)
-            })
+            }, onNavigateToAuth = { navController.navigate(route = AUTH_ENTER) })
         }
     }
 }
