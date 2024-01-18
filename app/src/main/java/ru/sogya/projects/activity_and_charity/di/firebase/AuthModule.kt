@@ -5,8 +5,10 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ViewModelComponent
 import ru.sogya.projects.activityandcharity.domain.repository.firebase.AuthRepository
+import ru.sogya.projects.activityandcharity.domain.usecase.firebase.auth.CheckUserAuthStatusUseCase
 import ru.sogya.projects.activityandcharity.domain.usecase.firebase.auth.ResetPasswordUseCase
 import ru.sogya.projects.activityandcharity.domain.usecase.firebase.auth.SignInUseCase
+import ru.sogya.projects.activityandcharity.domain.usecase.firebase.auth.SignOutUseCase
 import ru.sogya.projects.activityandcharity.domain.usecase.firebase.auth.SignUpUseCase
 
 @Module
@@ -22,4 +24,11 @@ class AuthModule {
     @Provides
     fun provideResetPasswordUseCase(authRepository: AuthRepository) =
         ResetPasswordUseCase(authRepository)
+
+    @Provides
+    fun provideSigOutUseCase(authRepository: AuthRepository) = SignOutUseCase(authRepository)
+
+    @Provides
+    fun provideCheckUserAuthStatusUseCase(authRepository: AuthRepository) =
+        CheckUserAuthStatusUseCase(authRepository)
 }

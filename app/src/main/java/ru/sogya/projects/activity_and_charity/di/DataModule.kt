@@ -6,6 +6,7 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
+import ru.sogya.projects.activityandcharity.data.datastore.AppDataStore
 import ru.sogya.projects.activityandcharity.data.repository.DatabaseRepositoryImpl
 import ru.sogya.projects.activityandcharity.data.repository.NetworkRepositoryImpl
 import ru.sogya.projects.activityandcharity.data.repository.firebase.AuthRepositoryImpl
@@ -35,8 +36,9 @@ class DataModule {
     @Singleton
     fun provideFirebaseAuthRepository(
         firebaseAuthenticator: FirebaseAuthenticator,
-        userStoreRepository: UserStoreRepository
-    ): AuthRepository = AuthRepositoryImpl(firebaseAuthenticator, userStoreRepository)
+        userStoreRepository: UserStoreRepository,
+        appDataStore: AppDataStore
+    ): AuthRepository = AuthRepositoryImpl(firebaseAuthenticator, userStoreRepository, appDataStore = appDataStore)
 
     @Provides
     @Singleton
