@@ -5,6 +5,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.tasks.await
 import ru.sogya.projects.activityandcharity.data.datastore.AppDataStore
 import ru.sogya.projects.activityandcharity.data.datastore.commit
@@ -72,11 +73,21 @@ class AuthRepositoryImpl(
         emit(State.success())
     }.flowOn(Dispatchers.IO)
 
-    private fun setUserLoginStatus(isLogin: Boolean) = flow<Unit> {
+    private suspend fun setUserLoginStatus(isLogin: Boolean) {
         appDataStore.commit {
             set(PREF_KEY_USER_LOGIN_STATUS, value = isLogin)
         }
     }
+
+    override suspend fun checkUserAuthStatus(): Flow<State<Unit>> = flow<State<Unit>> {
+        emit(State.loading())
+        appDataStore.data.map { preferences ->
+            preferences[PREF_KEY_USER_LOGIN_STATUS] ?: false
+        }.collect { isUserLogin ->
+            if (isUserLogin) emit(State.success())
+            else emit(State.failed())
+        }
+    }.flowOn(Dispatchers.IO)
 
     private val PREF_KEY_USER_LOGIN_STATUS = booleanPreferencesKey(name = "user_login_status")
 }
